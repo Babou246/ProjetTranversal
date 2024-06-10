@@ -1,12 +1,29 @@
-from flask import Flask, render_template, request, abort, redirect, url_for
+from flask import Flask, render_template, request, abort, redirect, url_for, flash
 from flask_sqlalchemy import SQLAlchemy
 import csv
+from flask_mail import Mail, Message
+import os
+
+
+#------------------------------------
 
 app = Flask(__name__)
+app.secret_key = 'codesecret'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///dt.sqlite'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db = SQLAlchemy(app)
+# Configuration de Flask-Mail
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USERNAME'] = 'diopabubakr79@gmail.com'
+app.config['MAIL_PASSWORD'] = 'pxsr locn kckp waqx'
+app.config['MAIL_DEFAULT_SENDER'] = ('PREVENTON VHE', 'diopabubakr79@gmail.com')
 
+db = SQLAlchemy(app)
+mail = Mail(app)
+
+
+#------------------------------------
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -15,6 +32,12 @@ class User(db.Model):
     address = db.Column(db.String(256))
     phone = db.Column(db.String(20))
     email = db.Column(db.String(120))
+
+class Medecin(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(64), index=True)
+   
+
 
     def to_dict(self):
         return {
@@ -25,12 +48,43 @@ class User(db.Model):
             'phone': self.phone,
             'email': self.email
         }
+    
 
 def create_database():
     with app.app_context():
         db.create_all()
         print("Database created successfully.")
         
+
+@app.route('/upload', methods=['GET', 'POST'])
+def upload_file():
+    if request.method == 'POST':
+        if 'file' not in request.files:
+            flash('No file part')
+            return redirect(request.url)
+        file = request.files['file']
+        if file.filename == '':
+            flash('No selected file')
+            return redirect(request.url)
+        if file:
+            # Enregistrer le fichier dans la base de données
+           """  new_file = User(filename=file.filename, data=file.read())
+            db.session.commit() 
+            db.session.add(new_file)
+            
+            # Envoyer des emails aux utilisateurs concernés
+            users = User.query.all() """
+            #for user in users:
+        print("debut des -------------------------")
+        msg = Message('INFO-XIBAR', recipients=["babacardiop8@esp.sn"])
+        msg.body = 'Bonjour M DIOP les fichiers sont disponibles: {}'.format(file.filename)
+        mail.send(msg)
+        print("fnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn")
+        flash('File successfully uploaded and emails sent')
+    return redirect(url_for('index'))
+
+
+
 @app.route('/')
 def index():
     return render_template('pages/dashboard.html')
@@ -43,6 +97,9 @@ def cal():
 @app.route('/index')
 def accueil():
     return render_template('pages/table.html')
+
+
+
 
 @app.route('/user')
 def user():

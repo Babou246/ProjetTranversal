@@ -1,0 +1,291 @@
+Temperature (oC),Time (HOURS),Time (Mins),Log Reduction,Matrix,Other information,Starting value,Source,NewData,EXPERIMENT_DATASET,RUN_NUMBER,EXCLUDE_DATA
+4,240,14400,1.6, cell culture supernatant (5% fetal calf serum),Genotype 3;  infectivity assayed by counting infected cells by immunofluorescence microscopy,4,Cell,FALSE,NA,,KEEP
+4,1344,80640,2.7, cell culture supernatant (5% fetal calf serum),Genotype 3;  infectivity assayed by counting infected cells by immunofluorescence microscopy,4,Cell,FALSE,NA,,KEEP
+22,168,10080,1.7, cell culture supernatant (5% fetal calf serum),Genotype 3;  infectivity assayed by counting infected cells by immunofluorescence microscopy,4,Cell,FALSE,NA,,KEEP
+22,672,40320,3.7, cell culture supernatant (5% fetal calf serum),Genotype 3;  infectivity assayed by counting infected cells by immunofluorescence microscopy,4,Cell,FALSE,NA,,KEEP
+37,96,5760,2, cell culture supernatant (5% fetal calf serum),Genotype 3;  infectivity assayed by counting infected cells by immunofluorescence microscopy,3.5,Cell,FALSE,NA,,KEEP
+37,504,30240,3.4, cell culture supernatant (5% fetal calf serum),Genotype 3;  infectivity assayed by counting infected cells by immunofluorescence microscopy,3.5,Cell,FALSE,NA,,KEEP
+60,0.016666667,1.00000002,1.3, cell culture supernatant (5% fetal calf serum),Genotype 3;  infectivity assayed by counting infected cells by immunofluorescence microscopy,3.5,Cell,FALSE,NA,,EXCLUDE
+65,0.016666667,1.00000002,2.6, cell culture supernatant (5% fetal calf serum),Genotype 3;  infectivity assayed by counting infected cells by immunofluorescence microscopy,3.5,Cell,FALSE,NA,,EXCLUDE
+70,0.013888889,0.83333334,2.9, cell culture supernatant (5% fetal calf serum),Genotype 3;  infectivity assayed by counting infected cells by immunofluorescence microscopy,4,Cell,FALSE,NA,,EXCLUDE
+70,0.016666667,1.00000002,2.9, cell culture supernatant (5% fetal calf serum),Genotype 3;  infectivity assayed by counting infected cells by immunofluorescence microscopy,3.5,Cell,FALSE,NA,,EXCLUDE
+70,0.025,1.5,3, cell culture supernatant (5% fetal calf serum),Genotype 3;  infectivity assayed by counting infected cells by immunofluorescence microscopy,4,Cell,FALSE,NA,,EXCLUDE
+70,0.033333333,1.99999998,3.9, cell culture supernatant (5% fetal calf serum),Genotype 3;  infectivity assayed by counting infected cells by immunofluorescence microscopy,4,Cell,FALSE,NA,,EXCLUDE
+75,0.016666667,1.00000002,3.4, cell culture supernatant (5% fetal calf serum),Genotype 3;  infectivity assayed by counting infected cells by immunofluorescence microscopy,3.5,Cell,FALSE,NA,,EXCLUDE
+75,0.016666667,1.00000002,3.5, cell culture supernatant (5% fetal calf serum),Genotype 3;  infectivity assayed by counting infected cells by immunofluorescence microscopy,3.5,Cell,FALSE,NA,,EXCLUDE
+80,0.016666667,1.00000002,3.5, cell culture supernatant (5% fetal calf serum),Genotype 3;  infectivity assayed by counting infected cells by immunofluorescence microscopy,3.5,Cell,FALSE,NA,,EXCLUDE
+62,0.083333333,4.99999998,1.19," Naturally infected pig liver, homogenised with added ""spices"", nitrite salt (2%, containing 99.4% NaCl and 0.5% NaNO2 E250), dextrose (0.5%) and sodium caseinate (2%)",Genotype 3 subtype 3e; genome equivalents measured by RT-PCR,8,Liver,FALSE,NA,,KEEP
+62,0.166666667,10.00000002,1.83," Naturally infected pig liver, homogenised with added ""spices"", nitrite salt (2%, containing 99.4% NaCl and 0.5% NaNO2 E250), dextrose (0.5%) and sodium caseinate (2%)",Genotype 3 subtype 3e; genome equivalents measured by RT-PCR,8,Liver,FALSE,NA,,KEEP
+62,2,120,2.17," Naturally infected pig liver, homogenised with added ""spices"", nitrite salt (2%, containing 99.4% NaCl and 0.5% NaNO2 E250), dextrose (0.5%) and sodium caseinate (2%)",Genotype 3 subtype 3e; genome equivalents measured by RT-PCR,8,Liver,FALSE,NA,,KEEP
+68,0.083333333,4.99999998,2.28," Naturally infected pig liver, homogenised with added ""spices"", nitrite salt (2%, containing 99.4% NaCl and 0.5% NaNO2 E250), dextrose (0.5%) and sodium caseinate (2%)",Genotype 3 subtype 3e; genome equivalents measured by RT-PCR,8,Liver,FALSE,NA,,KEEP
+68,0.166666667,10.00000002,2.26," Naturally infected pig liver, homogenised with added ""spices"", nitrite salt (2%, containing 99.4% NaCl and 0.5% NaNO2 E250), dextrose (0.5%) and sodium caseinate (2%)",Genotype 3 subtype 3e; genome equivalents measured by RT-PCR,8,Liver,FALSE,NA,,KEEP
+68,0.333333333,19.99999998,2.31," Naturally infected pig liver, homogenised with added ""spices"", nitrite salt (2%, containing 99.4% NaCl and 0.5% NaNO2 E250), dextrose (0.5%) and sodium caseinate (2%)",Genotype 3 subtype 3e; genome equivalents measured by RT-PCR,8,Liver,FALSE,NA,,KEEP
+71,0.083333333,4.99999998,2.93," Naturally infected pig liver, homogenised with added ""spices"", nitrite salt (2%, containing 99.4% NaCl and 0.5% NaNO2 E250), dextrose (0.5%) and sodium caseinate (2%)",Genotype 3 subtype 3e; genome equivalents measured by RT-PCR,8,Liver,FALSE,NA,,KEEP
+71,0.166666667,10.00000002,2.58," Naturally infected pig liver, homogenised with added ""spices"", nitrite salt (2%, containing 99.4% NaCl and 0.5% NaNO2 E250), dextrose (0.5%) and sodium caseinate (2%)",Genotype 3 subtype 3e; genome equivalents measured by RT-PCR,8,Liver,FALSE,NA,,KEEP
+71,0.333333333,19.99999998,2.69," Naturally infected pig liver, homogenised with added ""spices"", nitrite salt (2%, containing 99.4% NaCl and 0.5% NaNO2 E250), dextrose (0.5%) and sodium caseinate (2%)",Genotype 3 subtype 3e; genome equivalents measured by RT-PCR,8,Liver,FALSE,NA,,KEEP
+56,0.25,15,1,"Naturally infected wild boar liver, in PBS pH7.4",Genotype 3i; genome equivalents measured using a capsid integrity / RT-PCR assay,8.76,Liver,FALSE,NA,,KEEP
+56,0.5,30,4,"Naturally infected wild boar liver, in PBS pH7.4",Genotype 3i; genome equivalents measured using a capsid integrity / RT-PCR assay,8.76,Liver,FALSE,NA,,KEEP
+56,1,60,3,"Naturally infected wild boar liver, in PBS pH7.4",Genotype 3i; genome equivalents measured using a capsid integrity / RT-PCR assay,8.76,Liver,FALSE,NA,,KEEP
+60,1,60,3.22,"Naturally infected wild boar liver, in PBS pH7.4",Genotype 3i; genome equivalents measured using a capsid integrity / RT-PCR assay,8.76,Liver,FALSE,NA,,KEEP
+70,0.016666667,1.00000002,0.48,"Naturally infected wild boar liver, in PBS pH7.4",Genotype 3i; genome equivalents measured using a capsid integrity / RT-PCR assay,8.76,Liver,FALSE,NA,,KEEP
+75,0.016666667,1.00000002,0.72,"Naturally infected wild boar liver, in PBS pH7.4",Genotype 3i; genome equivalents measured using a capsid integrity / RT-PCR assay,8.76,Liver,FALSE,NA,,KEEP
+80,0.016666667,1.00000002,2.47,"Naturally infected wild boar liver, in PBS pH7.4",Genotype 3i; genome equivalents measured using a capsid integrity / RT-PCR assay,8.76,Liver,FALSE,NA,,EXCLUDE
+85,0.016666667,1.00000002,2.58,"Naturally infected wild boar liver, in PBS pH7.4",Genotype 3i; genome equivalents measured using a capsid integrity / RT-PCR assay,8.76,Liver,FALSE,NA,,EXCLUDE
+90,0.016666667,1.00000002,3.58,"Naturally infected wild boar liver, in PBS pH7.4",Genotype 3i; genome equivalents measured using a capsid integrity / RT-PCR assay,8.76,Liver,FALSE,NA,,EXCLUDE
+95,0.016666667,1.00000002,3.67,"Naturally infected wild boar liver, in PBS pH7.4",Genotype 3i; genome equivalents measured using a capsid integrity / RT-PCR assay,8.76,Liver,FALSE,NA,,EXCLUDE
+60,0.25,15,1,"PBS containing 2 M NaNO3, 1% beef extract, and 0.1% Triton X-100",Genotype 3f; genome equivalents measured by a capsid integrity / RT-PCR assay,6.7,Cell,FALSE,NA,,KEEP
+72,0.25,15,2,"PBS containing 2 M NaNO3, 1% beef extract, and 0.1% Triton X-100",Genotype 3f; genome equivalents measured by a capsid integrity / RT-PCR assay,6.7,Cell,FALSE,NA,,KEEP
+95,0.25,15,2,"PBS containing 2 M NaNO3, 1% beef extract, and 0.1% Triton X-100",Genotype 3f; genome equivalents measured by a capsid integrity / RT-PCR assay,6.7,Cell,FALSE,NA,,KEEP
+58,1,60,3.7,PBS pH7.5,Isolate from pigs liver (genotype not stated); infectivity assayed by calculation of the 50 % tissue culture infectious dose (TCID50),4.5,Liver,FALSE,NA,,KEEP
+58,3,180,3.1,12.5% human serum albumin,Isolate from pigs liver (genotype not stated); infectivity assayed by calculation of the 50 % tissue culture infectious dose (TCID50),4.5,Liver,FALSE,NA,,KEEP
+60,0.5,30,2.7,PBS,Genotype 3 strain JPa; infectivity measured by titration of suspension followed by cell culture / RT-PCR end-point detection,3.8,Cell,FALSE,NA,,KEEP
+60,5,300,2,PBS + 25% fetal bovine serum,Genotype 3 strain JPa; infectivity measured by titration of suspension followed by cell culture / RT-PCR end-point detection,3.8,Cell,FALSE,NA,,KEEP
+60,0.5,30,3.7,PBS,Genotype 3 strain SP; infectivity measured by titration of suspension followed by cell culture / RT-PCR end-point detection,5,Cell,FALSE,NA,,KEEP
+60,5,300,2,PBS + 25% fetal bovine serum,Genotype 3 strain SP; infectivity measured by titration of suspension followed by cell culture / RT-PCR end-point detection,5,Cell,FALSE,NA,,KEEP
+60,0.5,30,3.7,PBS,Genotype 3 strain US; infectivity measured by titration of suspension followed by cell culture / RT-PCR end-point detection,4.8,Cell,FALSE,NA,,KEEP
+60,5,300,1,PBS + 25% fetal bovine serum,Genotype 3 strain US; infectivity measured by titration of suspension followed by cell culture / RT-PCR end-point detection,4.8,Cell,FALSE,NA,,KEEP
+60,0.5,30,2.4,PBS,Genotype 4 strain JP; infectivity measured by titration of suspension followed by cell culture / RT-PCR end-point detection,3.5,Cell,FALSE,NA,,EXCLUDE
+60,5,300,2.2,PBS + 25% fetal bovine serum,Genotype 4 strain JP; infectivity measured by titration of suspension followed by cell culture / RT-PCR end-point detection,3.5,Cell,FALSE,NA,,EXCLUDE
+60,10,600,3.1,PBS + 5% albumin,Gentotype 3b; infectivity measured by titration of suspension followed by cell culture / RT-PCR end-point detection,4.72,Cell,FALSE,NA,,KEEP
+60,10,600,2.8,PBS + 25% albumin,Gentotype 3b; infectivity measured by titration of suspension followed by cell culture / RT-PCR end-point detection,4.72,Cell,FALSE,NA,,KEEP
+60,10,600,2.9,haptoglobin (commercial preparation),Gentotype 3b; infectivity measured by titration of suspension followed by cell culture / RT-PCR end-point detection,5.07,Cell,FALSE,NA,,KEEP
+60,10,600,3.2,antithrombin (commercial preparation),Gentotype 3b; infectivity measured by titration of suspension followed by cell culture / RT-PCR end-point detection,4.42,Cell,FALSE,NA,,KEEP
+60,10,600,2.4,5% venoglobulin (commercial preparation),Gentotype 3b; infectivity measured by titration of suspension followed by cell culture / RT-PCR end-point detection,4.87,Cell,FALSE,NA,,KEEP
+37,168,10080,1,soil,Mixed Genotype 3 subtype a and genotye 1; genome equivalents measured by RT-PCR,7.81,Soil,FALSE,NA,,EXCLUDE
+37,336,20160,1.02,soil,Mixed Genotype 3 subtype a and genotye 1; genome equivalents measured by RT-PCR,7.81,Soil,FALSE,NA,,EXCLUDE
+37,504,30240,2.48,soil,Mixed Genotype 3 subtype a and genotye 1; genome equivalents measured by RT-PCR,7.81,Soil,FALSE,NA,,EXCLUDE
+37,672,40320,2.55,soil,Mixed Genotype 3 subtype a and genotye 1; genome equivalents measured by RT-PCR,7.81,Soil,FALSE,NA,,EXCLUDE
+37,840,50400,2.95,soil,Mixed Genotype 3 subtype a and genotye 1; genome equivalents measured by RT-PCR,7.81,Soil,FALSE,NA,,EXCLUDE
+37,1008,60480,3.2,soil,Mixed Genotype 3 subtype a and genotye 1; genome equivalents measured by RT-PCR,7.81,Soil,FALSE,NA,,EXCLUDE
+37,1176,70560,3.96,soil,Mixed Genotype 3 subtype a and genotye 1; genome equivalents measured by RT-PCR,7.81,Soil,FALSE,NA,,EXCLUDE
+37,1344,80640,4.09,soil,Mixed Genotype 3 subtype a and genotye 1; genome equivalents measured by RT-PCR,7.81,Soil,FALSE,NA,,EXCLUDE
+37,1512,90720,4.22,soil,Mixed Genotype 3 subtype a and genotye 1; genome equivalents measured by RT-PCR,7.81,Soil,FALSE,NA,,EXCLUDE
+37,1680,100800,4.29,soil,Mixed Genotype 3 subtype a and genotye 1; genome equivalents measured by RT-PCR,7.81,Soil,FALSE,NA,,EXCLUDE
+60,0.5,30,0.3,PBS + 5% albumin,Gentotype 3b; infectivity measured by titration of suspension followed by cell culture / RT-PCR end-point detection,4.72,Cell,FALSE,NA,,KEEP
+60,0.5,30,0.7,PBS + 25% albumin,Gentotype 3b; infectivity measured by titration of suspension followed by cell culture / RT-PCR end-point detection,4.72,Cell,FALSE,NA,,KEEP
+60,0.5,30,0.6,haptoglobin (commercial preparation),Gentotype 3b; infectivity measured by titration of suspension followed by cell culture / RT-PCR end-point detection,5.07,Cell,FALSE,NA,,KEEP
+60,0.5,30,1,antithrombin (commercial preparation),Gentotype 3b; infectivity measured by titration of suspension followed by cell culture / RT-PCR end-point detection,4.42,Cell,FALSE,NA,,KEEP
+60,0.5,30,1.7,5% venoglobulin (commercial preparation),Gentotype 3b; infectivity measured by titration of suspension followed by cell culture / RT-PCR end-point detection,4.87,Cell,FALSE,NA,,KEEP
+60,1,60,0.5,PBS + 5% albumin,Gentotype 3b; infectivity measured by titration of suspension followed by cell culture / RT-PCR end-point detection,4.72,Cell,FALSE,NA,,KEEP
+60,1,60,0.5,PBS + 25% albumin,Gentotype 3b; infectivity measured by titration of suspension followed by cell culture / RT-PCR end-point detection,4.72,Cell,FALSE,NA,,KEEP
+60,1,60,1.2,haptoglobin (commercial preparation),Gentotype 3b; infectivity measured by titration of suspension followed by cell culture / RT-PCR end-point detection,5.07,Cell,FALSE,NA,,KEEP
+60,1,60,1.2,antithrombin (commercial preparation),Gentotype 3b; infectivity measured by titration of suspension followed by cell culture / RT-PCR end-point detection,4.42,Cell,FALSE,NA,,KEEP
+60,1,60,1.9,5% venoglobulin (commercial preparation),Gentotype 3b; infectivity measured by titration of suspension followed by cell culture / RT-PCR end-point detection,4.87,Cell,FALSE,NA,,KEEP
+60,5,300,1.6,PBS + 5% albumin,Gentotype 3b; infectivity measured by titration of suspension followed by cell culture / RT-PCR end-point detection,4.72,Cell,FALSE,NA,,KEEP
+60,5,300,1.5,PBS + 25% albumin,Gentotype 3b; infectivity measured by titration of suspension followed by cell culture / RT-PCR end-point detection,4.72,Cell,FALSE,NA,,KEEP
+60,5,300,2.7,haptoglobin (commercial preparation),Gentotype 3b; infectivity measured by titration of suspension followed by cell culture / RT-PCR end-point detection,5.07,Cell,FALSE,NA,,KEEP
+60,5,300,1.2,antithrombin (commercial preparation),Gentotype 3b; infectivity measured by titration of suspension followed by cell culture / RT-PCR end-point detection,4.42,Cell,FALSE,NA,,KEEP
+60,5,300,1.9,5% venoglobulin (commercial preparation),Gentotype 3b; infectivity measured by titration of suspension followed by cell culture / RT-PCR end-point detection,4.87,Cell,FALSE,NA,,KEEP
+45,1,60,1,PBS pH7.4,"Genotype 1 strain ""Akluj""; fecal suspension from patient",2.31,Faecal,FALSE,NA,,EXCLUDE
+50,1,60,1,PBS pH7.5,"Genotype 1 strain ""Akluj""; fecal suspension from patient",2.31,Faecal,FALSE,NA,,EXCLUDE
+56,0.25,15,1.27,PBS pH7.6,"Genotype 1 strain ""Akluj""; fecal suspension from patient",2.31,Faecal,FALSE,NA,,EXCLUDE
+56,0.5,30,1.83,PBS pH7.7,"Genotype 1 strain ""Akluj""; fecal suspension from patient",2.31,Faecal,FALSE,NA,,EXCLUDE
+56,1,60,1.83,PBS pH7.8,"Genotype 1 strain ""Akluj""; fecal suspension from patient",2.31,Faecal,FALSE,NA,,EXCLUDE
+56,1,60,1,PBS pH7.9,"Genotype 1 strain ""Sar55""; fecal suspension from patient",1.67,Faecal,FALSE,NA,,EXCLUDE
+60,1,60,1.4,PBS pH7.10,"Genotype 1 strain ""Sar55""; fecal suspension from patient",1.67,Faecal,FALSE,NA,,EXCLUDE
+56,1,60,0,PBS pH7.11,"Genotype 2 strain ""Mex 14""; fecal suspension from experimentally infected primate",3.38,Faecal,FALSE,NA,,EXCLUDE
+60,1,60,1,PBS pH7.12,"Genotype 2 strain ""Mex 14""; fecal suspension from experimentally infected primate",3.38,Faecal,FALSE,NA,,EXCLUDE
+22,0.033333333,1.99999998,0,Human virus diluted in PBS ph7.4,Genotype 3 WHO standard serum,3.789933081,Serum,TRUE,DATASET0,,KEEP
+65,0.166666667,10.00000002,0.207074619,Human serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,3.789933081,Serum,TRUE,DATASET0,,KEEP
+70,0.033333333,1.99999998,0.172722986,Human serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,3.789933081,Serum,TRUE,DATASET0,,KEEP
+75,0.014444444,0.86666664,0.13691363,Human serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,3.789933081,Serum,TRUE,DATASET0,,KEEP
+75,0.033333333,1.99999998,0.172722986,Human serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,3.789933081,Serum,TRUE,DATASET0,,KEEP
+22,0.033333333,1.99999998,0,Human serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,3.600864036,Serum,TRUE,DATASET0,,KEEP
+65,0.166666667,10.00000002,0.181900206,Human serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,3.600864036,Serum,TRUE,DATASET0,,KEEP
+70,0.033333333,1.99999998,0.389209636,Human serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,3.600864036,Serum,TRUE,DATASET0,,KEEP
+75,0.014444444,0.86666664,0.181569315,Human serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,3.600864036,Serum,TRUE,DATASET0,,KEEP
+22,0.033333333,1.99999998,0,Human serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,3.605305046,Serum,TRUE,DATASET0,,KEEP
+65,0.166666667,10.00000002,0.097314321,Human serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,3.605305046,Serum,TRUE,DATASET0,,KEEP
+70,0.033333333,1.99999998,0.160479847,Human serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,3.605305046,Serum,TRUE,DATASET0,,KEEP
+75,0.014444444,0.86666664,0.147725899,Human serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,3.605305046,Serum,TRUE,DATASET0,,KEEP
+22,0.041666667,2.50000002,0,Human serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,3.481729197,Serum,TRUE,DATASET0,,KEEP
+75,0.041666667,2.50000002,0.303327855,Human serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,3.481729197,Serum,TRUE,DATASET0,,KEEP
+80,0.041666667,2.50000002,0.169975336,Human serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,3.481729197,Serum,TRUE,DATASET0,,KEEP
+85,0.041666667,2.50000002,0.500817259,Human serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,3.481729197,Serum,TRUE,DATASET0,,KEEP
+100,0.166666667,10.00000002,4,Human serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,3.481729197,Serum,TRUE,DATASET0,,KEEP
+22,0.083333333,4.99999998,0,Human serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,3.481729197,Serum,TRUE,DATASET0,,KEEP
+75,0.083333333,4.99999998,0.437189437,Human serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,3.481729197,Serum,TRUE,DATASET0,,KEEP
+80,0.083333333,4.99999998,0.253842492,Human serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,3.481729197,Serum,TRUE,DATASET0,,KEEP
+85,0.083333333,4.99999998,0.199787264,Human serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,3.481729197,Serum,TRUE,DATASET0,,KEEP
+75,0,0,0.03,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.176091259,Serum,TRUE,DATASET1,1,KEEP
+75,0.033333333,2,0.1,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.176091259,Serum,TRUE,DATASET1,1,KEEP
+75,0.066666667,4,0.02,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.176091259,Serum,TRUE,DATASET1,1,KEEP
+75,0.1,6,0.17,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.176091259,Serum,TRUE,DATASET1,1,KEEP
+75,0.133333333,8,0.2,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.176091259,Serum,TRUE,DATASET1,1,KEEP
+75,0.166666667,10,0.08,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.176091259,Serum,TRUE,DATASET1,1,KEEP
+75,0,0,0.3,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.176091259,Serum,TRUE,DATASET1,2,KEEP
+75,0.033333333,2,0.04,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.176091259,Serum,TRUE,DATASET1,2,KEEP
+75,0.066666667,4,0.1,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.176091259,Serum,TRUE,DATASET1,2,KEEP
+75,0.1,6,0.16,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.176091259,Serum,TRUE,DATASET1,2,KEEP
+75,0.133333333,8,0.07,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.176091259,Serum,TRUE,DATASET1,2,KEEP
+75,0.166666667,10,-0.08,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.176091259,Serum,TRUE,DATASET1,2,KEEP
+80,0,0,0.11,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.176091259,Serum,TRUE,DATASET1,3,KEEP
+80,0.033333333,2,0.06,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.176091259,Serum,TRUE,DATASET1,3,KEEP
+80,0.066666667,4,0.12,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.176091259,Serum,TRUE,DATASET1,3,KEEP
+80,0.1,6,0.12,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.176091259,Serum,TRUE,DATASET1,3,KEEP
+80,0.133333333,8,0.11,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.176091259,Serum,TRUE,DATASET1,3,KEEP
+80,0.166666667,10,0,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.176091259,Serum,TRUE,DATASET1,3,KEEP
+80,0,0,0.1,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.176091259,Serum,TRUE,DATASET1,4,KEEP
+80,0.033333333,2,0.01,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.176091259,Serum,TRUE,DATASET1,4,KEEP
+80,0.066666667,4,0.41,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.176091259,Serum,TRUE,DATASET1,4,KEEP
+80,0.1,6,0.05,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.176091259,Serum,TRUE,DATASET1,4,KEEP
+80,0.133333333,8,0.05,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.176091259,Serum,TRUE,DATASET1,4,KEEP
+80,0.166666667,10,0.05,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.176091259,Serum,TRUE,DATASET1,4,KEEP
+100,0,0,0.13,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.176091259,Serum,TRUE,DATASET1,5,KEEP
+100,0.033333333,2,0.13,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.176091259,Serum,TRUE,DATASET1,5,KEEP
+100,0.066666667,4,0.15,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.176091259,Serum,TRUE,DATASET1,5,KEEP
+100,0.1,6,0.08,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.176091259,Serum,TRUE,DATASET1,5,KEEP
+100,0.133333333,8,0.32,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.176091259,Serum,TRUE,DATASET1,5,KEEP
+100,0.166666667,10,0.67,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.176091259,Serum,TRUE,DATASET1,5,KEEP
+70,0,0,-0.014123354,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.176091259,Serum,TRUE,DATASET2,6,KEEP
+70,0.033333333,2,0.058636656,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.176091259,Serum,TRUE,DATASET2,6,KEEP
+70,0.066666667,4,0.027141449,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.176091259,Serum,TRUE,DATASET2,6,KEEP
+70,0.1,6,0.231630403,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.176091259,Serum,TRUE,DATASET2,6,KEEP
+70,0.133333333,8,0.289243555,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.176091259,Serum,TRUE,DATASET2,6,KEEP
+70,0,0,0.053325855,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.176091259,Serum,TRUE,DATASET2,7,KEEP
+70,0.066666667,4,-0.028657087,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.176091259,Serum,TRUE,DATASET2,7,KEEP
+70,0.1,6,0.149845968,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.176091259,Serum,TRUE,DATASET2,7,KEEP
+70,0.133333333,8,0.040438998,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.176091259,Serum,TRUE,DATASET2,7,KEEP
+70,0.166666667,10,0.234039531,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.176091259,Serum,TRUE,DATASET2,7,KEEP
+75,0,0,-0.06,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.131746945,Serum,TRUE,DATASET3,8,KEEP
+75,0.033333333,2,-0.03,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.131746945,Serum,TRUE,DATASET3,8,KEEP
+75,0.1,6,-0.03,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.131746945,Serum,TRUE,DATASET3,8,KEEP
+75,0.133333333,8,0.2,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.131746945,Serum,TRUE,DATASET3,8,KEEP
+75,0.166666667,10,0.07,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.131746945,Serum,TRUE,DATASET3,8,KEEP
+80,0,0,-0.15,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.131746945,Serum,TRUE,DATASET3,9,KEEP
+80,0.033333333,2,-0.05,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.131746945,Serum,TRUE,DATASET3,9,KEEP
+80,0.066666667,4,0.11,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.131746945,Serum,TRUE,DATASET3,9,KEEP
+80,0.1,6,0.03,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.131746945,Serum,TRUE,DATASET3,9,KEEP
+80,0.133333333,8,0.21,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.131746945,Serum,TRUE,DATASET3,9,KEEP
+100,0,0,0.29,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.131746945,Serum,TRUE,DATASET3,10,KEEP
+100,0.083333333,5,0.33,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.131746945,Serum,TRUE,DATASET3,10,KEEP
+100,0.166666667,10,0.55,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.131746945,Serum,TRUE,DATASET3,10,KEEP
+70,0,0,0.01,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.131746945,Serum,TRUE,DATASET4,11,KEEP
+70,0.033333333,2,0.05,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.131746945,Serum,TRUE,DATASET4,11,KEEP
+70,0.066666667,4,-0.06,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.131746945,Serum,TRUE,DATASET4,11,KEEP
+70,0.1,6,-0.1,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.131746945,Serum,TRUE,DATASET4,11,KEEP
+70,0.133333333,8,0.05,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.131746945,Serum,TRUE,DATASET4,11,KEEP
+70,0.166666667,10,0.08,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,4.131746945,Serum,TRUE,DATASET4,11,KEEP
+70,0,0,0.024839098,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,3.830716949,Serum,TRUE,DATASET5,12,KEEP
+70,0.066666667,4,-0.081157609,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,3.830716949,Serum,TRUE,DATASET5,12,KEEP
+70,0.133333333,8,-0.017696021,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,3.830716949,Serum,TRUE,DATASET5,12,KEEP
+70,0.166666667,10,-0.192180839,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,3.830716949,Serum,TRUE,DATASET5,12,KEEP
+70,0.333333333,20,-0.09808846,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,3.830716949,Serum,TRUE,DATASET5,12,KEEP
+75,0,0,-0.073524064,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,3.830716949,Serum,TRUE,DATASET5,13,KEEP
+75,0.066666667,4,-0.186991578,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,3.830716949,Serum,TRUE,DATASET5,13,KEEP
+75,0.133333333,8,-0.063317812,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,3.830716949,Serum,TRUE,DATASET5,13,KEEP
+75,0.166666667,10,-0.018189117,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,3.830716949,Serum,TRUE,DATASET5,13,KEEP
+75,0.333333333,20,-0.05303651,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,3.830716949,Serum,TRUE,DATASET5,13,KEEP
+80,0,0,-0.041164133,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,3.830716949,Serum,TRUE,DATASET5,14,KEEP
+80,0.066666667,4,-0.115517822,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,3.830716949,Serum,TRUE,DATASET5,14,KEEP
+80,0.133333333,8,-0.121191758,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,3.830716949,Serum,TRUE,DATASET5,14,KEEP
+80,0.166666667,10,-0.107568039,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,3.830716949,Serum,TRUE,DATASET5,14,KEEP
+80,0.333333333,20,-0.029498558,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,3.830716949,Serum,TRUE,DATASET5,14,KEEP
+100,0,0,0.031902068,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,3.830716949,Serum,TRUE,DATASET5,15,KEEP
+100,0.066666667,4,-0.002764305,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,3.830716949,Serum,TRUE,DATASET5,15,KEEP
+100,0.133333333,8,0.183400248,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,3.830716949,Serum,TRUE,DATASET5,15,KEEP
+100,0.166666667,10,0.254927674,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,3.830716949,Serum,TRUE,DATASET5,15,KEEP
+100,0.333333333,20,0.621558644,Human virus derived from serum diluted in PBS ph7.4,Genotype 3 WHO standard serum,3.830716949,Serum,TRUE,DATASET5,15,KEEP
+70,0,0,-0.101558482,Virus obtained from Supernatant derived from A459 HEV-infected cell line ,Genotype 3 ,6.407969465,Cell,TRUE,DATASET6,16,KEEP
+70,0.083333333,5,-0.20198887,Virus obtained from Supernatant derived from A459 HEV-infected cell line ,Genotype 3 ,6.407969465,Cell,TRUE,DATASET6,16,KEEP
+70,0.166666667,10,-0.07474482,Virus obtained from Supernatant derived from A459 HEV-infected cell line ,Genotype 3 ,6.407969465,Cell,TRUE,DATASET6,16,KEEP
+70,0.333333333,20,0.197564815,Virus obtained from Supernatant derived from A459 HEV-infected cell line ,Genotype 3 ,6.407969465,Cell,TRUE,DATASET6,16,KEEP
+75,0,0,-0.008006469,Virus obtained from Supernatant derived from A459 HEV-infected cell line ,Genotype 3 ,6.407969465,Cell,TRUE,DATASET6,17,KEEP
+75,0.083333333,5,0.438291844,Virus obtained from Supernatant derived from A459 HEV-infected cell line ,Genotype 3 ,6.407969465,Cell,TRUE,DATASET6,17,KEEP
+75,0.166666667,10,1.174861367,Virus obtained from Supernatant derived from A459 HEV-infected cell line ,Genotype 3 ,6.407969465,Cell,TRUE,DATASET6,17,KEEP
+75,0.333333333,20,0.627502264,Virus obtained from Supernatant derived from A459 HEV-infected cell line ,Genotype 3 ,6.407969465,Cell,TRUE,DATASET6,17,KEEP
+80,0,0,-0.013825629,Virus obtained from Supernatant derived from A459 HEV-infected cell line ,Genotype 3 ,6.407969465,Cell,TRUE,DATASET6,18,KEEP
+80,0.083333333,5,0.516971449,Virus obtained from Supernatant derived from A459 HEV-infected cell line ,Genotype 3 ,6.407969465,Cell,TRUE,DATASET6,18,KEEP
+80,0.166666667,10,0.142786201,Virus obtained from Supernatant derived from A459 HEV-infected cell line ,Genotype 3 ,6.407969465,Cell,TRUE,DATASET6,18,KEEP
+80,0.333333333,20,0.346570804,Virus obtained from Supernatant derived from A459 HEV-infected cell line ,Genotype 3 ,6.407969465,Cell,TRUE,DATASET6,18,KEEP
+85,0,0,0.313030094,Virus obtained from Supernatant derived from A459 HEV-infected cell line ,Genotype 3 ,6.407969465,Cell,TRUE,DATASET6,19,KEEP
+85,0.083333333,5,0.102165107,Virus obtained from Supernatant derived from A459 HEV-infected cell line ,Genotype 3 ,6.407969465,Cell,TRUE,DATASET6,19,KEEP
+85,0.166666667,10,0.373370327,Virus obtained from Supernatant derived from A459 HEV-infected cell line ,Genotype 3 ,6.407969465,Cell,TRUE,DATASET6,19,KEEP
+85,0.333333333,20,0.60813679,Virus obtained from Supernatant derived from A459 HEV-infected cell line ,Genotype 3 ,6.407969465,Cell,TRUE,DATASET6,19,KEEP
+100,0,0,0.039278627,Virus obtained from Supernatant derived from A459 HEV-infected cell line ,Genotype 3 ,6.407969465,Cell,TRUE,DATASET6,20,KEEP
+100,0.083333333,5,1.021244272,Virus obtained from Supernatant derived from A459 HEV-infected cell line ,Genotype 3 ,6.407969465,Cell,TRUE,DATASET6,20,KEEP
+100,0.166666667,10,1.02196204,Virus obtained from Supernatant derived from A459 HEV-infected cell line ,Genotype 3 ,6.407969465,Cell,TRUE,DATASET6,20,KEEP
+100,0.333333333,20,1.903360901,Virus obtained from Supernatant derived from A459 HEV-infected cell line ,Genotype 3 ,6.407969465,Cell,TRUE,DATASET6,20,KEEP
+23,0,0,2.05E-05,Virus obtained from Supernatant derived from A459 HEV-infected cell line ,REIMAR CELL CULTURE VIRUS,4.33,Cell,TRUE,DATASET7,21,KEEP
+23,0.083333333,5,0.116227028,Virus obtained from Supernatant derived from A459 HEV-infected cell line ,REIMAR CELL CULTURE VIRUS,4.33,Cell,TRUE,DATASET7,21,KEEP
+23,0.166666667,10,0.147521846,Virus obtained from Supernatant derived from A459 HEV-infected cell line ,REIMAR CELL CULTURE VIRUS,4.33,Cell,TRUE,DATASET7,21,KEEP
+23,0.333333333,20,0.077318896,Virus obtained from Supernatant derived from A459 HEV-infected cell line ,REIMAR CELL CULTURE VIRUS,4.33,Cell,TRUE,DATASET7,21,KEEP
+70,0,0,0.099894482,Virus obtained from Supernatant derived from A459 HEV-infected cell line ,REIMAR CELL CULTURE VIRUS,4.33,Cell,TRUE,DATASET7,22,KEEP
+70,0.083333333,5,0.136762594,Virus obtained from Supernatant derived from A459 HEV-infected cell line ,REIMAR CELL CULTURE VIRUS,4.33,Cell,TRUE,DATASET7,22,KEEP
+70,0.166666667,10,0.308825907,Virus obtained from Supernatant derived from A459 HEV-infected cell line ,REIMAR CELL CULTURE VIRUS,4.33,Cell,TRUE,DATASET7,22,KEEP
+70,0.333333333,20,0.412876659,Virus obtained from Supernatant derived from A459 HEV-infected cell line ,REIMAR CELL CULTURE VIRUS,4.33,Cell,TRUE,DATASET7,22,KEEP
+75,0,0,0.031218858,Virus obtained from Supernatant derived from A459 HEV-infected cell line ,REIMAR CELL CULTURE VIRUS,4.33,Cell,TRUE,DATASET7,23,KEEP
+75,0.083333333,5,0.184177562,Virus obtained from Supernatant derived from A459 HEV-infected cell line ,REIMAR CELL CULTURE VIRUS,4.33,Cell,TRUE,DATASET7,23,KEEP
+75,0.166666667,10,0.302079036,Virus obtained from Supernatant derived from A459 HEV-infected cell line ,REIMAR CELL CULTURE VIRUS,4.33,Cell,TRUE,DATASET7,23,KEEP
+75,0.333333333,20,0.272100841,Virus obtained from Supernatant derived from A459 HEV-infected cell line ,REIMAR CELL CULTURE VIRUS,4.33,Cell,TRUE,DATASET7,23,KEEP
+80,0,0,0.096008803,Virus obtained from Supernatant derived from A459 HEV-infected cell line ,REIMAR CELL CULTURE VIRUS,4.33,Cell,TRUE,DATASET7,24,KEEP
+80,0.083333333,5,0.254819918,Virus obtained from Supernatant derived from A459 HEV-infected cell line ,REIMAR CELL CULTURE VIRUS,4.33,Cell,TRUE,DATASET7,24,KEEP
+80,0.166666667,10,0.216335226,Virus obtained from Supernatant derived from A459 HEV-infected cell line ,REIMAR CELL CULTURE VIRUS,4.33,Cell,TRUE,DATASET7,24,KEEP
+80,0.333333333,20,0.232010514,Virus obtained from Supernatant derived from A459 HEV-infected cell line ,REIMAR CELL CULTURE VIRUS,4.33,Cell,TRUE,DATASET7,24,KEEP
+85,0,0,0.158913818,Virus obtained from Supernatant derived from A459 HEV-infected cell line ,REIMAR CELL CULTURE VIRUS,4.33,Cell,TRUE,DATASET7,25,KEEP
+85,0.083333333,5,0.201707612,Virus obtained from Supernatant derived from A459 HEV-infected cell line ,REIMAR CELL CULTURE VIRUS,4.33,Cell,TRUE,DATASET7,25,KEEP
+85,0.166666667,10,0.267269353,Virus obtained from Supernatant derived from A459 HEV-infected cell line ,REIMAR CELL CULTURE VIRUS,4.33,Cell,TRUE,DATASET7,25,KEEP
+85,0.333333333,20,0.328971828,Virus obtained from Supernatant derived from A459 HEV-infected cell line ,REIMAR CELL CULTURE VIRUS,4.33,Cell,TRUE,DATASET7,25,KEEP
+100,0,0,0.252270799,Virus obtained from Supernatant derived from A459 HEV-infected cell line ,REIMAR CELL CULTURE VIRUS,4.33,Cell,TRUE,DATASET7,26,KEEP
+100,0.083333333,5,0.355032676,Virus obtained from Supernatant derived from A459 HEV-infected cell line ,REIMAR CELL CULTURE VIRUS,4.33,Cell,TRUE,DATASET7,26,KEEP
+100,0.166666667,10,0.430445644,Virus obtained from Supernatant derived from A459 HEV-infected cell line ,REIMAR CELL CULTURE VIRUS,4.33,Cell,TRUE,DATASET7,26,KEEP
+100,0.333333333,20,0.457387478,Virus obtained from Supernatant derived from A459 HEV-infected cell line ,REIMAR CELL CULTURE VIRUS,4.33,Cell,TRUE,DATASET7,26,KEEP
+23,0,0,0.121399674,APHA VIRUS - THIS DATA DOES NOT LOOK GOOD TO ME,None,4.53,Faecal,TRUE,DATASET8,31,EXCLUDE
+23,0.083333333,5,-0.016698757,APHA VIRUS  -  INPUT AVERAGE OF RT SOME POINTS OUT OF LINE BUT QUALITY OK,None,4.53,Faecal,TRUE,DATASET8,31,EXCLUDE
+23,0.166666667,10,-0.032755636,APHA VIRUS,None,4.53,Faecal,TRUE,DATASET8,31,EXCLUDE
+23,0.333333333,20,-0.051663489,APHA VIRUS,None,4.53,Faecal,TRUE,DATASET8,31,EXCLUDE
+70,0,0,0.20036639,APHA VIRUS,None,4.53,Faecal,TRUE,DATASET8,32,EXCLUDE
+70,0.083333333,5,0.085599426,APHA VIRUS,None,4.53,Faecal,TRUE,DATASET8,32,EXCLUDE
+70,0.166666667,10,-0.057854073,APHA VIRUS,None,4.53,Faecal,TRUE,DATASET8,32,EXCLUDE
+70,0.333333333,20,0.107265241,APHA VIRUS,None,4.53,Faecal,TRUE,DATASET8,32,EXCLUDE
+75,0,0,-0.012679299,APHA VIRUS,None,4.53,Faecal,TRUE,DATASET8,33,EXCLUDE
+75,0.083333333,5,0.147517015,APHA VIRUS,None,4.53,Faecal,TRUE,DATASET8,33,EXCLUDE
+75,0.166666667,10,-0.031248363,APHA VIRUS,None,4.53,Faecal,TRUE,DATASET8,33,EXCLUDE
+75,0.333333333,20,0.087579966,APHA VIRUS,None,4.53,Faecal,TRUE,DATASET8,33,EXCLUDE
+80,0,0,0.120562269,APHA VIRUS,None,4.53,Faecal,TRUE,DATASET8,34,EXCLUDE
+80,0.083333333,5,-0.037467315,APHA VIRUS,None,4.53,Faecal,TRUE,DATASET8,34,EXCLUDE
+80,0.166666667,10,-0.044079747,APHA VIRUS,None,4.53,Faecal,TRUE,DATASET8,34,EXCLUDE
+80,0.333333333,20,0.023946839,APHA VIRUS,None,4.53,Faecal,TRUE,DATASET8,34,EXCLUDE
+85,0,0,0.145350422,APHA VIRUS,None,4.53,Faecal,TRUE,DATASET8,35,EXCLUDE
+85,0.083333333,5,0.165287325,APHA VIRUS,None,4.53,Faecal,TRUE,DATASET8,35,EXCLUDE
+85,0.166666667,10,0.014106938,APHA VIRUS,None,4.53,Faecal,TRUE,DATASET8,35,EXCLUDE
+85,0.333333333,20,0.063405631,APHA VIRUS,None,4.53,Faecal,TRUE,DATASET8,35,EXCLUDE
+100,0,0,0.292407703,APHA VIRUS,None,4.53,Faecal,TRUE,DATASET8,36,EXCLUDE
+100,0.083333333,5,0.393758094,APHA VIRUS,None,4.53,Faecal,TRUE,DATASET8,36,EXCLUDE
+100,0.166666667,10,0.392441859,APHA VIRUS,None,4.53,Faecal,TRUE,DATASET8,36,EXCLUDE
+100,0.333333333,20,0.5436626,APHA VIRUS,None,4.53,Faecal,TRUE,DATASET8,36,EXCLUDE
+85,0,0,0,Human virus derived from serum diluted in PBS ph7.4,None,4.05,Serum,TRUE,DATASET9,27,KEEP
+85,0.083333333,5,0.555533429,Human virus derived from serum diluted in PBS ph7.4,None,4.05,Serum,TRUE,DATASET9,27,KEEP
+85,0.166666667,10,0.442868668,Human virus derived from serum diluted in PBS ph7.4,None,4.05,Serum,TRUE,DATASET9,27,KEEP
+85,0.25,15,0.348398398,Human virus derived from serum diluted in PBS ph7.4,None,4.05,Serum,TRUE,DATASET9,27,KEEP
+85,0.333333333,20,0.339056545,Human virus derived from serum diluted in PBS ph7.4,None,4.05,Serum,TRUE,DATASET9,27,KEEP
+95,0,0,0.106797578,Human virus derived from serum diluted in PBS ph7.4,None,4.05,Serum,TRUE,DATASET9,28,KEEP
+95,0.083333333,5,0.226907145,Human virus derived from serum diluted in PBS ph7.4,None,4.05,Serum,TRUE,DATASET9,28,KEEP
+95,0.166666667,10,0.451925783,Human virus derived from serum diluted in PBS ph7.4,None,4.05,Serum,TRUE,DATASET9,28,KEEP
+95,0.25,15,0.533291614,Human virus derived from serum diluted in PBS ph7.4,None,4.05,Serum,TRUE,DATASET9,28,KEEP
+95,0.333333333,20,0.550035957,Human virus derived from serum diluted in PBS ph7.4,None,4.05,Serum,TRUE,DATASET9,28,KEEP
+95,0,0,0.689306688,Virus obtained from Supernatant derived from A459 HEV-infected cell line ,None,4,Cell,TRUE,DATASET10,29,KEEP
+95,0.083333333,5,0.673869043,Virus obtained from Supernatant derived from A459 HEV-infected cell line ,None,4,Cell,TRUE,DATASET10,29,KEEP
+95,0.166666667,10,0.797511683,Virus obtained from Supernatant derived from A459 HEV-infected cell line ,None,4,Cell,TRUE,DATASET10,29,KEEP
+95,0.25,15,0.895854449,Virus obtained from Supernatant derived from A459 HEV-infected cell line ,None,4,Cell,TRUE,DATASET10,29,KEEP
+95,0.333333333,20,0.894830572,Virus obtained from Supernatant derived from A459 HEV-infected cell line ,None,4,Cell,TRUE,DATASET10,29,KEEP
+95,0,0,0,APHA VIRUS,None,4.8,Faecal,TRUE,DATASET11,30,KEEP
+95,0.083333333,5,0.218164977,APHA VIRUS,None,4.8,Faecal,TRUE,DATASET11,30,KEEP
+95,0.166666667,10,0.096603948,APHA VIRUS,None,4.8,Faecal,TRUE,DATASET11,30,KEEP
+95,0.25,15,0.171565579,APHA VIRUS,None,4.8,Faecal,TRUE,DATASET11,30,KEEP
+95,0.333333333,20,0.223017351,APHA VIRUS,None,4.8,Faecal,TRUE,DATASET11,30,KEEP
+74,0,0,-0.05,APHA VIRUS,None,4.3,Faecal,TRUE,DATASET12,31,KEEP
+74,0.083333333,5,0.17,APHA VIRUS,None,4.3,Faecal,TRUE,DATASET12,31,KEEP
+74,0.166666667,10,0.15,APHA VIRUS,None,4.3,Faecal,TRUE,DATASET12,31,KEEP
+74,0.25,15,0.25,APHA VIRUS,None,4.3,Faecal,TRUE,DATASET12,31,KEEP
+74,0.333333333,20,0.5,APHA VIRUS,None,4.3,Faecal,TRUE,DATASET12,31,KEEP
+82,0,0,0.05,APHA VIRUS,None,4.3,Faecal,TRUE,DATASET12,32,KEEP
+82,0.083333333,5,-0.01,APHA VIRUS,None,4.3,Faecal,TRUE,DATASET12,32,KEEP
+82,0.166666667,10,0.01,APHA VIRUS,None,4.3,Faecal,TRUE,DATASET12,32,KEEP
+82,0.25,15,0.02,APHA VIRUS,None,4.3,Faecal,TRUE,DATASET12,32,KEEP
+82,0.333333333,20,0.18,APHA VIRUS,None,4.3,Faecal,TRUE,DATASET12,32,KEEP
+87,0,0,0.09,APHA VIRUS,None,4.3,Faecal,TRUE,DATASET12,33,KEEP
+87,0.083333333,5,0.28,APHA VIRUS,None,4.3,Faecal,TRUE,DATASET12,33,KEEP
+87,0.166666667,10,0.11,APHA VIRUS,None,4.3,Faecal,TRUE,DATASET12,33,KEEP
+87,0.25,15,0.69,APHA VIRUS,None,4.3,Faecal,TRUE,DATASET12,33,KEEP
+87,0.333333333,20,0.77,APHA VIRUS,None,4.3,Faecal,TRUE,DATASET12,33,KEEP

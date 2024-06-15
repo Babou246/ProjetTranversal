@@ -52,14 +52,14 @@
             <div class="card-header">
                 <div class="icon icon-success">
                     <span class="material-icons">
-                        attach_money
+                        city
                     </span>
 
                 </div>
             </div>
             <div class="card-content">
-                <p class="category"><strong>Revenue</strong></p>
-                <h3 class="card-title">$23,100</h3>
+                <p class="category"><strong>zones</strong></p>
+                <h3 class="card-title">23</h3>
             </div>
             <div class="card-footer">
                 <div class="stats">
@@ -165,46 +165,6 @@
     </div>
 </div>
 
-{% endblock %}
-{% block footer %}
-<footer class="footer">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-6">
-                <nav class="d-flex">
-                    <ul class="m-0 p-0">
-                        <li>
-                            <a href="{{ url_for('index') }}">
-                                Home
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ url_for('data') }}">
-                                Api
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ url_for('home') }}">
-                                Importer
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ url_for('accueil') }}">
-                                Table
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-
-            </div>
-            <div class="col-md-6">
-                <p class="copyright d-flex justify-content-end"> &copy 2023 Design by 
-                    <a href="#"> <span>- Babacar(771007695) - </span></a> Tout droit reservé
-                </p>
-            </div>
-        </div>
-    </div>
-</footer>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
     const labels = ["Bob Williams", "Mike Tyson", "Tim Sebastian", "Philip Morris", "Minerva Hooper", "Hulk Hogan", "Angelina Jolie"];
@@ -284,7 +244,7 @@
                     'rgba(54, 162, 235, 0.2)',
                     'rgba(255, 206, 86, 0.2)',
                     'rgba(75, 192, 192, 0.2)',
-                ],
+                    ],
                 borderWidth: 1
             }]
         },
@@ -300,4 +260,45 @@
     
 </script>
 
+{% endblock %}
+
+{% block footer %}
+<footer class="footer">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <nav class="d-flex">
+                    <ul class="m-0 p-0">
+                        <li>
+                            <a href="#">
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url_for('data') }}">
+                                Api
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                Importer
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url_for('accueil') }}">
+                                Table
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+            </div>
+            <div class="col-md-6">
+                <p class="copyright d-flex justify-content-end"> &copy 2023 Design by 
+                    <a href="#"> <span>- Babacar(771007695) - </span></a> Tout droit reservé
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
 {% endblock %}

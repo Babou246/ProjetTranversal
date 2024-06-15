@@ -1,25 +1,28 @@
 import random
 import sys
 from faker import Faker
-from basic_table import db, User
+from model import db, Utilisateur,app
 
 
-def create_fake_users(n):
-    """Generate fake users."""
+
+with app.app_context():
+    # Your Flask-specific code here
+    nom = ['diop', 'sylla', 'fall', 'coly', 'sané', 'balde', 'mbengue', 'sarr', 'mar', 'keita', 'preira', 'ndoye']
+    prenom = ['babou', 'modou', 'ndeytou', 'banna', 'marem', 'sophy', 'aly', 'penda', 'haby', 'soumba', 'demba', 'abdoulaye']
     faker = Faker()
+    n =1000
+    # Example code using Flask extensions or database operations
     for i in range(n):
-        user = User(name=faker.name(),
-                    age=random.randint(20, 80),
-                    address=faker.address().replace('\n', ', '),
-                    phone=faker.phone_number(),
-                    email=faker.email())
+
+        user = Utilisateur(
+            username=faker.name(),
+            email=faker.email(),
+            password="passera",
+            nom=random.choice(nom),
+            prenom=random.choice(prenom),
+            role_id=random.randint(1, 2)
+        )
         db.session.add(user)
+
     db.session.commit()
     print(f'Added {n} fake users to the database.')
-
-
-if __name__ == '__main__':
-    if len(sys.argv) <= 1:
-        print('Pass the number of users you want to create as an argument.')
-        sys.exit(1)
-    create_fake_users(int(sys.argv[1]))

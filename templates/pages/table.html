@@ -2,138 +2,149 @@
 
 {% block content %}
 
-<!-- <a href="{{ url_for('home')}}">Impoter les données</a> -->
-<div>
-    <h1>Les données </h1>
-    <hr>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Editable avec Grid.js</title>
+    <link href="https://cdn.jsdelivr.net/npm/gridjs/dist/theme/mermaid.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        .detail-cell {
+            text-align: center;
+        }
+        .detail-cell i {
+            cursor: pointer;
+            color: #007bff;
+        }
+        .detail-cell i:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
     <div id="table"></div>
-</div>
-<script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
-<script>
-    const tableDiv = document.getElementById('table');
-    const updateUrl = (prev, query) => {
-        return prev + (prev.indexOf('?') >= 0 ? '&' : '?') + new URLSearchParams(query).toString();
-    };
-    const editableCellAttributes = (data, row, col) => {
-        if (row) {
-            return {
-                contentEditable: 'true',
-                'data-element-id': row.cells[0].data
-            };
-        } else {
-            return {};
-        }
-    };
-    new gridjs.Grid({
-        columns: [{
-                id: 'id',
-                'hidden': true
-            },
-            {
-                id: 'name',
-                name: 'Name',
-                'attributes': editableCellAttributes
-            },
-            {
-                id: 'age',
-                name: 'Date',
-                sort: false,
-                'attributes': editableCellAttributes
-            },
-            {
-                id: 'address',
-                name: 'Address',
-                sort: false,
-                'attributes': editableCellAttributes
-            },
-            {
-                id: 'phone',
-                name: 'Phone Number',
-                sort: false,
-                'attributes': editableCellAttributes
-            },
-            {
-                id: 'email',
-                name: 'Email',
-                sort: false,
-                'attributes': editableCellAttributes
-            },
-        ],
-        server: {
-            url: '/api/data',
-            then: results => results.data,
-            total: results => results.total,
-        },
-        search: {
-            enabled: true,
+
+    <script src="https://cdn.jsdelivr.net/npm/gridjs/dist/gridjs.umd.js"></script>
+    <script>
+        const tableDiv = document.getElementById('table');
+
+        // Fonction pour générer l'URL avec les paramètres de requête
+        const updateUrl = (prev, query) => {
+            return prev + (prev.indexOf('?') >= 0 ? '&' : '?') + new URLSearchParams(query).toString();
+        };
+
+        // Fonction pour les attributs des cellules éditables
+        const editableCellAttributes = (data, row, col) => {
+            if (row) {
+                return {
+                    contentEditable: 'true',
+                    'data-element-id': row.cells[0].data,
+                    'data-column-id': col.id // Ajout de l'ID de la colonne pour la gestion des modifications
+                };
+            } else {
+                return {};
+            }
+        };
+
+        // Fonction de rendu personnalisée pour la colonne "detail"
+        const detailCellRenderer = (cell, row) => {
+            return gridjs.html(`<i class="fa fa-eye" style="cursor: pointer;" data-id="${row.cells[0].data}" onclick="viewUser(${row.cells[0].data})"></i>`);
+        };
+
+        new gridjs.Grid({
+            columns: [
+                { id: 'id', hidden: true },
+                { id: 'username', name: 'Username', attributes: editableCellAttributes },
+                { id: 'email', name: 'Email', sort: false, attributes: editableCellAttributes },
+                { id: 'nom', name: 'Nom', sort: false, attributes: editableCellAttributes },
+                { id: 'prenom', name: 'Prénom', sort: false, attributes: editableCellAttributes },
+                { id: 'detail', name: 'Détail', sort: false, formatter: detailCellRenderer }
+            ],
             server: {
-                url: (prev, search) => {
-                    return updateUrl(prev, {
-                        search
-                    });
+                url: '/api/data',
+                then: results => results.data,
+                total: results => results.total,
+            },
+            search: {
+                enabled: true,
+                server: {
+                    url: (prev, search) => updateUrl(prev, { search }),
                 },
             },
-        },
-        sort: {
-            enabled: true,
-            multiColumn: true,
-            server: {
-                url: (prev, columns) => {
-                    const columnIds = ['id', 'name', 'age', 'address', 'phone', 'email'];
-                    const sort = columns.map(col => (col.direction === 1 ? '+' : '-') + columnIds[col
-                        .index]);
-                    return updateUrl(prev, {
-                        sort
-                    });
-                },
-            },
-        },
-        pagination: {
-            enabled: true,
-            server: {
-                url: (prev, page, limit) => {
-                    return updateUrl(prev, {
-                        start: page * limit,
-                        length: limit
-                    });
-                },
-            },
-        },
-    }).render(tableDiv);
-    let savedValue;
-    tableDiv.addEventListener('focusin', ev => {
-        if (ev.target.tagName === 'TD') {
-            savedValue = ev.target.textContent;
-        }
-    });
-    tableDiv.addEventListener('focusout', ev => {
-        if (ev.target.tagName === 'TD') {
-            if (savedValue !== ev.target.textContent) {
-                fetch('/api/data', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
+            sort: {
+                enabled: true,
+                multiColumn: true,
+                server: {
+                    url: (prev, columns) => {
+                        const columnIds = ['id', 'username', 'email', 'nom', 'prenom', 'detail'];
+                        const sort = columns.map(col => (col.direction === 1 ? '+' : '-') + columnIds[col.index]);
+                        return updateUrl(prev, { sort });
                     },
-                    body: JSON.stringify({
-                        id: ev.target.dataset.elementId,
-                        [ev.target.dataset.columnId]: ev.target.textContent
-                    }),
-                });
+                },
+            },
+            pagination: {
+                enabled: true,
+                server: {
+                    url: (prev, page, limit) => updateUrl(prev, { start: page * limit, length: limit }),
+                },
+            },
+        }).render(tableDiv);
+
+        // Gestion des événements pour l'édition des cellules
+        let savedValue;
+        tableDiv.addEventListener('focusin', ev => {
+            if (ev.target.tagName === 'TD') {
+                savedValue = ev.target.textContent;
             }
-            savedValue = undefined;
-        }
-    });
-    tableDiv.addEventListener('keydown', ev => {
-        if (ev.target.tagName === 'TD') {
-            if (ev.key === 'Escape') {
-                ev.target.textContent = savedValue;
-                ev.target.blur();
-            } else if (ev.key === 'Enter') {
-                ev.preventDefault();
-                ev.target.blur();
+        });
+        tableDiv.addEventListener('focusout', ev => {
+            if (ev.target.tagName === 'TD') {
+                if (savedValue !== ev.target.textContent) {
+                    fetch('/api/data', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            id: ev.target.dataset.elementId,
+                            [ev.target.dataset.columnId]: ev.target.textContent
+                        }),
+                    });
+                }
+                savedValue = undefined;
             }
+        });
+        tableDiv.addEventListener('keydown', ev => {
+            if (ev.target.tagName === 'TD') {
+                if (ev.key === 'Escape') {
+                    ev.target.textContent = savedValue;
+                    ev.target.blur();
+                } else if (ev.key === 'Enter') {
+                    ev.preventDefault();
+                    ev.target.blur();
+                }
+            }
+        });
+
+        function viewUser(userId) {
+            window.location.href = `/user/${userId}`;
         }
-    });
-</script>
-</div>
+    </script>
+</body>
+</html>
+
 {% endblock %}

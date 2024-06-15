@@ -2,7 +2,7 @@
 python -m venv venv
 
 # Actver l'envronnement
-venv\Script\activate
+venv\Scripts\activate
 
 # Installer les dependances
 pip install -r requirements.txt

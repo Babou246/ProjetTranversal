@@ -1,4 +1,4 @@
-from app import db, User
+from app import db, Utilisateur
 import csv
 
 # import sqlite3
@@ -26,7 +26,7 @@ def create_import():
     with open('MOCK_DATA.csv', 'r') as file:
         reader = csv.DictReader(file)
         for row in reader:
-            user = User(name=row['name'],
+            user = Utilisateur(name=row['name'],
                         age=int(row['age']),
                         address=row['address'],
                         phone=row['phone'],

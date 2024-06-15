@@ -37,7 +37,7 @@
             </div>
             <ul class="list-unstyled components">
                 <li class="active">
-                    <a href="{{ url_for('index') }}" class="dashboard"><i class="material-icons">dashboard</i><span>Dashboard</span></a>
+                    <a href="#" class="dashboard"><i class="material-icons">dashboard</i><span>Dashboard</span></a>
                 </li>
 
                 <div class="small-screen navbar-display">
@@ -73,92 +73,41 @@
                     </li>
                 </div>
 
-                <li class=""> <a href="{{ url_for('accueil') }}"><i class="material-icons">table_chart</i><span>Users</span>
+                <li class=""> 
+                    <a href="{{ url_for('accueil') }}"><i class="material-icons">table_chart</i><span>Users</span>
                     </a>
                 </li>
-                <li class="dropdown">
-                    <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                <li class="">
+                    <a href="#" >
                         <i class="material-icons">equalizer</i>
 
                         <span>chart</span></a>
-                    <ul class="collapse list-unstyled menu" id="pageSubmenu3">
-                        <li>
-                            <a href="#">Page 1</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 3</a>
-                        </li>
-                    </ul>
                 </li>
-                <li class="dropdown">
-                    <a href="#pageSubmenu4" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                <li class="">
+                    <a href="{{ url_for('data_mongo_db') }}">
                         <i class="material-icons">extension</i><span>ui element</span></a>
-                    <ul class="collapse list-unstyled menu" id="pageSubmenu4">
-                        <li>
-                            <a href="#">Page 1</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 3</a>
-                        </li>
-                    </ul>
                 </li>
 
                 <li class="dropdown">
-                    <a href="#pageSubmenu5" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <a href="#">
                         <i class="material-icons">border_color</i><span>forms</span></a>
-                    <ul class="collapse list-unstyled menu" id="pageSubmenu5">
-                        <li>
-                            <a href="#">Page 1</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 3</a>
-                        </li>
-                    </ul>
+
                 </li>
 
                 <li class="dropdown">
-                    <a href="#pageSubmenu6" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <a href="#">
                         <i class="material-icons">grid_on</i><span>tables</span></a>
-                    <ul class="collapse list-unstyled menu" id="pageSubmenu6">
-                        <li>
-                            <a href="#">Page 1</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 3</a>
-                        </li>
-                    </ul>
+                    
                 </li>
 
                 <li class="dropdown">
-                    <a href="#pageSubmenu7" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <a href="#">
                         <i class="material-icons">content_copy</i><span>Pages</span></a>
-                    <ul class="collapse list-unstyled menu" id="pageSubmenu7">
-                        <li>
-                            <a href="{{ url_for('accueil') }}">Table</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 3</a>
-                        </li>
-                    </ul>
+                    
                 </li>
 
                 <li class="">
-                    <a href="{{ url_for('cal')}}"><i class="material-icons">date_range</i><span>copy</span></a>
+                    <a href="#"><i class="material-icons">date_range</i><span>copy</span></a>
                 </li>
 
                 <li class="">
@@ -226,7 +175,7 @@
                                   
                                 
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">
+                                    <a class="nav-link" href="{{ url_for('user')}}">
                                         <span class="material-icons">person</span>
                                     </a>
                                 </li>
@@ -237,28 +186,28 @@
             </div>
             <!-- Modal pour charger les données -->
             <div class="modal fade" id="uploadDataModal" tabindex="-1" aria-labelledby="uploadDataModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header">
-                    <h5 class="modal-title" id="uploadDataModalLabel">Charger les données</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    </div>
-                    <div class="modal-body">
-                        
-                    <!-- Formulaire pour charger les données -->
-                    <form action="{{ url_for('upload_file') }}" id="uploadDataForm" action="/upload" method="post" enctype="multipart/form-data">
-                        <div class="form-group">
-                        <input type="file" class="form-control" id="file" name="file" riequired>
+                <div class="modal-dialog modal-dialog-centered modal-xl modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="uploadDataModalLabel">Charger les données</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
-                        <button type="submit" class="btn btn-primary">Charger</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                    </form>
+                        <div class="modal-body">
+                            <!-- Formulaire pour charger les données -->
+                            <form action="{{ url_for('upload_file') }}" id="uploadDataForm" action="/upload" method="post" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <input type="file" class="form-control" id="file" name="file" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Charger</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                            </form>
+                        </div>
                     </div>
-                </div>
                 </div>
             </div>
+             
   
             <div class="main-content">
                 

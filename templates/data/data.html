@@ -1,0 +1,111 @@
+<!-- data.html -->
+{% extends "pages/index.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Données de Collecte</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+            font-weight: bold;
+        }
+        .pagination {
+            margin-top: 10px;
+        }
+        .pagination a {
+            display: inline-block;
+            padding: 8px 12px;
+            margin-right: 5px;
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            text-decoration: none;
+            color: #333;
+        }
+        .pagination a.active {
+            background-color: #007bff;
+            color: #fff;
+            border-color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Données de Collecte</h1>
+
+    <table id="data-table">
+        <thead>
+            <tr>
+                <th>Temperature</th>
+                <th>Time Hours</th>
+                <th>Time Mins</th>
+                <th>Log Reduction</th>
+                <th>Matrix</th>
+                <th>Other Information</th>
+                <th>Starting Value</th>
+                <!-- Ajoutez d'autres colonnes au besoin -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for doc in data %}
+            <tr>
+                <td>{{ doc.temperature }}</td>
+                <td>{{ doc.time_hours }}</td>
+                <td>{{ doc.time_mins }}</td>
+                <td>{{ doc.log_reduction }}</td>
+                <td>{{ doc.matrix }}</td>
+                <td>{{ doc.other_information }}</td>
+                <td>{{ doc.starting_value }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Pagination -->
+    <!-- Pagination -->
+    <div class="pagination">
+        {% if total_pages > 1 %}
+            {% if page > 1 %}
+                <a href="?page={{ page - 1 }}">Précédent</a>
+            {% endif %}
+
+            {% set start_page = max(1, page - 1) %}
+            {% set end_page = min(total_pages, start_page + 2) %}
+            {% if end_page - start_page < 2 %}
+                {% set start_page = max(1, end_page - 2) %}
+            {% endif %}
+
+            {% for num in range(start_page, end_page + 1) %}
+                {% if num == page %}
+                    <a href="?page={{ num }}" class="active">{{ num }}</a>
+                {% else %}
+                    <a href="?page={{ num }}">{{ num }}</a>
+                {% endif %}
+            {% endfor %}
+
+            {% if page < total_pages %}
+                <a href="?page={{ page + 1 }}">Suivant</a>
+            {% endif %}
+        {% endif %}
+    </div>
+</body>
+</html>
+{% endblock %}

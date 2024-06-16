@@ -30,6 +30,9 @@ class Role(db.Model):
 
     def __repr__(self):
         return f'<Role {self.nom}>'
+class Region(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    nom = db.Column(db.String(100),nullable=False)
 
 # Modèle Utilisateur avec référence à Role
 class Utilisateur(db.Model):
@@ -41,11 +44,30 @@ class Utilisateur(db.Model):
     prenom = db.Column(db.String(30), nullable=False)
     role_id = db.Column(db.Integer, db.ForeignKey('role.id'), nullable=False)
     role = db.relationship('Role', backref=db.backref('utilisateurs', lazy=True))
+    active = db.Column(db.Boolean, default=True)
+    region_id = db.Column(db.Integer, db.ForeignKey('region.id'), nullable=False)
+    region = db.relationship('Region', backref=db.backref('utilisateurs', lazy=True))
+
 
     def __repr__(self):
         return f'<Utilisateur {self.username}>'
     def verify_password(self, password):
         return check_password_hash(self.password, password)
+    def is_active(self):
+        return self.active
+    def get_id(self):
+        return str(self.id)
+    
+    @property
+    def is_authenticated(self):
+        # Utilisateur toujours authentifié si l'objet existe
+        return True
+
+    @property
+    def is_anonymous(self):
+        return False
+    
+
 
 class Dataset(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -53,7 +75,6 @@ class Dataset(db.Model):
     data = db.Column(db.LargeBinary, nullable=False)  # Assuming dataset is binary data
     uploaded_by = db.Column(db.Integer, db.ForeignKey('utilisateur.id'), nullable=False)
     uploaded_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
-    utilisateur = db.relationship('Utilisateur', backref=db.backref('datasets', lazy=True))
 
 class Notification(db.Model):
     id = db.Column(db.Integer, primary_key=True)

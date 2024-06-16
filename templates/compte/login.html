@@ -33,7 +33,7 @@
                                     </div>
                                 {% endif %}
                             {% endwith %}
-                              <form action="{{ url_for('login') }}" method="POST">
+                            <form action="{{ url_for('login') }}" method="POST">
                                 <div class="login-row row no-margin">
                                     <label for="email"><i class="fas fa-envelope"></i> Email</label>
                                     <input type="email" id="email" name="email" class="form-control form-control-sm" required>
@@ -51,39 +51,13 @@
                                     </div>
                                     <!-- Lien pour ouvrir le modal -->
                                     <p><a href="#" id="resetPasswordLink" data-toggle="modal" data-target="#resetPasswordModal">Mot de passe oublié?</a></p>
-                                    <!-- Modal pour réinitialiser le mot de passe -->
-                                    <div class="modal fade" id="resetPasswordModal" tabindex="-1" role="dialog" aria-labelledby="resetPasswordModalLabel" aria-hidden="true">
-                                      <div class="modal-dialog" role="document">
-                                          <div class="modal-content">
-                                              <div class="modal-header">
-                                                  <h5 class="modal-title" id="resetPasswordModalLabel">Réinitialisation du mot de passe</h5>
-                                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                      <span aria-hidden="true">&times;</span>
-                                                  </button>
-                                              </div>
-                                              <form id="resetPasswordForm" action="{{ url_for('changepassword') }}" method="POST">
-                                                  <div class="modal-body">
-                                                      <p>Entrez votre adresse email pour réinitialiser votre mot de passe :</p>
-                                                      <div class="form-group">
-                                                          <label for="resetEmail">Email</label>
-                                                          <input type="email" class="form-control" id="resetEmail" name="reset_email" required>
-                                                      </div>
-                                                  </div>
-                                                  <div class="modal-footer">
-                                                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                                                      <button type="submit" class="btn btn-primary">Réinitialiser le mot de passe</button>
-                                                  </div>
-                                              </form>
-                                          </div>
-                                      </div>
-                                    </div>
-
                                 </div>
                             
                                 <div class="login-row btnroo row no-margin">
                                     <button type="submit" class="btn btn-success btn-sm">Se connecter</button>
                                 </div>
                             </form>
+                            
                             
                             <div class="login-row donroo row no-margin">
                                <p>Pas de compte ? <a href="{{ url_for('inscrire')}}">S'inscrire</a></p>

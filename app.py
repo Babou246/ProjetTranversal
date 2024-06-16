@@ -76,6 +76,7 @@ def dashboard():
 
 @app.route('/upload', methods=['POST'])
 def upload_file():
+    print('------------------------------->>>>>>>>>>>',request)
     if 'file' not in request.files:
         return 'No file part'
     file = request.files['file']
@@ -121,7 +122,7 @@ def insert_data(file_path):
         #msg = Message('INFO-SANTE', recipients=["babacardiop8@esp.sn","bannabalde@esp.sn","ndeytouboye@esp.sn","mouhamadoumbengue@esp.sn","mariemtidianidia@gmail.com"])
         msg = Message('INFO-SANTE', recipients=["babacardiop8@esp.sn"])
         msg.body = 'C\'est un TEST les enfants '
-        #mail.send(msg)
+        mail.send(msg)
         print("fnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn")
         flash('File successfully uploaded and emails sent')
     return redirect(url_for('dashboard'))
@@ -139,14 +140,28 @@ def login():
 
         if utilisateur and utilisateur.verify_password(password):
             login_user(utilisateur)
-            flash('Connexion réussie.', 'success')
-            return redirect(url_for('dashboard'))  # Redirige vers le tableau de bord après la connexion réussie
+            return redirect(url_for('dashboard'))
         else:
             flash('Identifiants incorrects. Veuillez réessayer.', 'danger')
-    return render_template('compte/login.html') 
+    return render_template('compte/login.html')
+
 
 @app.route('/prevent-vhe/sous/inscrire', methods=('GET', 'POST'))
 def inscrire():
+    regions_senegal = [
+    "Dakar", "Diourbel", "Fatick", "Kaffrine", "Kaolack",
+    "Kédougou", "Kolda", "Louga", "Matam", "Saint-Louis",
+    "Sédhiou", "Tambacounda", "Thiès", "Ziguinchor"
+    ]
+    region_senegal = Region.query.all()
+
+    # Insérez chaque région dans la table Region
+    for region_name in regions_senegal:
+        region = Region(nom=region_name)
+        #db.session.add(region)
+
+    # Validez les changements dans la base de données
+    #db.session.commit()
     if request.method == 'POST':
         prenom = request.form.get('prenom')
         nom = request.form.get('nom')
@@ -154,6 +169,11 @@ def inscrire():
         password = request.form.get('password')
         confirm_password = request.form.get('confirm_password')
         role_nom = request.form.get('role')
+        region_id = request.form.get('region')
+
+        # Vérifiez que region_id est bien renseigné
+        if region_id is None:
+            return "Erreur : Vous devez sélectionner une région."
 
         # Vérifier si l'utilisateur existe déjà par email
         utilisateur_existe = Utilisateur.query.filter_by(email=email).first()
@@ -179,15 +199,21 @@ def inscrire():
             password=generate_password_hash(password),  # Hasher le mot de passe
             nom=nom,
             prenom=prenom,
-            role_id=role.id
+            role_id=role.id,
+            region_id=region_id
         )
 
         db.session.add(nouvel_utilisateur)
         db.session.commit()
-
         flash('Inscription réussie. Vous pouvez maintenant vous connecter.', 'success')
 
-    return render_template('compte/inscription.html')
+    return render_template('compte/inscription.html',region_senegal=region_senegal)
+
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('login'))
 #####################################################
 
 

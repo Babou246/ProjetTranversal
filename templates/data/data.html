@@ -14,14 +14,15 @@
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
+            background-color: #ffffff;
         }
         th, td {
             padding: 10px;
-            border: 1px solid #ddd;
+            border: 1px solid #d4d4d4;
             text-align: left;
         }
         th {
-            background-color: #f4f4f4;
+            background-color: #ffffff;
             font-weight: bold;
         }
         .pagination {
@@ -56,6 +57,7 @@
                 <th>Matrix</th>
                 <th>Other Information</th>
                 <th>Starting Value</th>
+                <th>details</th>
                 <!-- Ajoutez d'autres colonnes au besoin -->
             </tr>
         </thead>
@@ -69,38 +71,39 @@
                 <td>{{ doc.matrix }}</td>
                 <td>{{ doc.other_information }}</td>
                 <td>{{ doc.starting_value }}</td>
+                <td><i class="fa fa-eye" style="cursor: pointer;" data-id="" onclick=""></i></td>
             </tr>
             {% endfor %}
         </tbody>
+        <div class="pagination">
+            {% if total_pages > 1 %}
+                {% if page > 1 %}
+                    <a href="?page={{ page - 1 }}">Précédent</a>
+                {% endif %}
+    
+                {% set start_page = max(1, page - 1) %}
+                {% set end_page = min(total_pages, start_page + 2) %}
+                {% if end_page - start_page < 2 %}
+                    {% set start_page = max(1, end_page - 2) %}
+                {% endif %}
+    
+                {% for num in range(start_page, end_page + 1) %}
+                    {% if num == page %}
+                        <a href="?page={{ num }}" class="active">{{ num }}</a>
+                    {% else %}
+                        <a href="?page={{ num }}">{{ num }}</a>
+                    {% endif %}
+                {% endfor %}
+    
+                {% if page < total_pages %}
+                    <a href="?page={{ page + 1 }}">Suivant</a>
+                {% endif %}
+            {% endif %}
+        </div>
     </table>
 
     <!-- Pagination -->
     <!-- Pagination -->
-    <div class="pagination">
-        {% if total_pages > 1 %}
-            {% if page > 1 %}
-                <a href="?page={{ page - 1 }}">Précédent</a>
-            {% endif %}
-
-            {% set start_page = max(1, page - 1) %}
-            {% set end_page = min(total_pages, start_page + 2) %}
-            {% if end_page - start_page < 2 %}
-                {% set start_page = max(1, end_page - 2) %}
-            {% endif %}
-
-            {% for num in range(start_page, end_page + 1) %}
-                {% if num == page %}
-                    <a href="?page={{ num }}" class="active">{{ num }}</a>
-                {% else %}
-                    <a href="?page={{ num }}">{{ num }}</a>
-                {% endif %}
-            {% endfor %}
-
-            {% if page < total_pages %}
-                <a href="?page={{ page + 1 }}">Suivant</a>
-            {% endif %}
-        {% endif %}
-    </div>
 </body>
 </html>
 {% endblock %}

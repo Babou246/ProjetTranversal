@@ -33,11 +33,11 @@
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3><img src="{{ url_for('static',filename='img/l.jpeg') }}" class="img-fluid" /><span>VHE</span></h3>
+                <h3><img src="{{ url_for('static',filename='img/l.jpeg') }}" class="img-fluid" /><span>PREVENT/VHE({{ current_user.role.nom }})</span></h3>
             </div>
             <ul class="list-unstyled components">
                 <li class="active">
-                    <a href="#" class="dashboard"><i class="material-icons">dashboard</i><span>Dashboard</span></a>
+                    <a href="{{ url_for('dashboard') }}" class="dashboard"> <i class="material-icons">equalizer</i><span>Dashboard</span></a>
                 </li>
 
                 <div class="small-screen navbar-display">
@@ -74,18 +74,18 @@
                 </div>
 
                 <li class=""> 
-                    <a href="{{ url_for('accueil') }}"><i class="material-icons">table_chart</i><span>Users</span>
+                    <a href="{{ url_for('accueil') }}"><i class="material-icons">table_chart</i><span>Utilisateur</span>
                     </a>
                 </li>
                 <li class="">
-                    <a href="#" >
-                        <i class="material-icons">equalizer</i>
+                    <a href="{{ url_for('medecin') }}" >
+                        <i class="material-icons">dashboard</i>
 
-                        <span>chart</span></a>
+                        <span>Voir Medecin</span></a>
                 </li>
                 <li class="">
                     <a href="{{ url_for('data_mongo_db') }}">
-                        <i class="material-icons">extension</i><span>ui element</span></a>
+                        <i class="material-icons">extension</i><span>Données</span></a>
                 </li>
 
                 <li class="dropdown">
@@ -166,12 +166,14 @@
                                         <span class="material-icons">apps</span>
                                     </a>
                                 </li> -->
+                                {% if current_user.role.id ==2 %}
                                 <li class="nav-item">
                                     <a class="nav-link" href="#" data-toggle="modal" data-target="#uploadDataModal">
                                       <span class="material-icons" title="Charger les données">upload</span>
                                     </a>
                                     
                                 </li>
+                                {% endif %}
                                   
                                 
                                 <li class="nav-item">
@@ -200,7 +202,7 @@
                                 <div class="form-group">
                                     <input type="file" class="form-control" id="file" name="file" required>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Charger</button>
+                                <button type="submit" class="btn btn-success">Charger</button>
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
                             </form>
                         </div>

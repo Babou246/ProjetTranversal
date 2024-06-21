@@ -57,6 +57,8 @@ class Utilisateur(db.Model):
         return self.active
     def get_id(self):
         return str(self.id)
+    def set_password(self, password):
+        self.password_hash = generate_password_hash(password)
     
     @property
     def is_authenticated(self):
@@ -67,7 +69,15 @@ class Utilisateur(db.Model):
     def is_anonymous(self):
         return False
     
-
+class Patient(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, nullable=False)
+    name = db.Column(db.String(100), nullable=False)
+    age = db.Column(db.Integer, nullable=False)
+    symptoms = db.Column(db.Text, nullable=False)
+    meat_consumption = db.Column(db.String(10), nullable=False)
+    animal_type = db.Column(db.String(100), nullable=True)
+    timestamp = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
 
 class Dataset(db.Model):
     id = db.Column(db.Integer, primary_key=True)

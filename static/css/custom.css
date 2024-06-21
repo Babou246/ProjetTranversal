@@ -4,8 +4,8 @@
 body, html {
 	line-height: 1.8;
     font-family: 'Roboto', sans-serif;
-     color: #555e58;
-	 text-transform:capitalize;
+    color: #5e5955;
+	text-transform:capitalize;
 	text-rendering: optimizeLegibility !important;
 	-webkit-font-smoothing: antialiased !important;
 	 font-weight: 400;
@@ -215,7 +215,7 @@ a:focus {
 	line-height: 30px;
 	border-radius:5px;
     font-size: 15px;
-	position:relative;'
+	position:relative;
     font-weight: 400;
     display: block;
 }
@@ -264,7 +264,7 @@ a:focus {
 
 
 .main-content{
-	padding:10px 20px 0px 20px;
+	padding:10px 20px 391px 20px;
 	position: relative;
     width: 100%;
 }
@@ -670,13 +670,13 @@ footer .copyright {
     display:none;
 	transition:all 0.5s ease;
 }
-
+/* LE CONTENU DE LA PAGE */
 #content {
     width: calc(100% - 260px);
     position: relative;
     float: right;
     transition: all 0.3s;
-    background-color: #EEEEEE;
+    background-color: #dddcdc;
 }  
 
 #content.active {

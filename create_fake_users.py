@@ -1,3 +1,5 @@
+from hashlib import sha1
+import hashlib
 import random
 import sys
 from faker import Faker
@@ -12,15 +14,18 @@ with app.app_context():
     faker = Faker()
     n =1000
     # Example code using Flask extensions or database operations
+    password = "passera"
+    hashed_password = hashlib.sha1(password.encode('utf-8')).hexdigest()
     for i in range(n):
 
         user = Utilisateur(
             username=faker.name(),
             email=faker.email(),
-            password="passera",
+            password=hashed_password,
             nom=random.choice(nom),
             prenom=random.choice(prenom),
-            role_id=random.randint(1, 2)
+            role_id=random.randint(1, 2),
+            region_id=random.randint(1, 14)
         )
         db.session.add(user)
 

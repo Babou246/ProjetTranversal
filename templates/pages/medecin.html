@@ -1,0 +1,77 @@
+<!-- data.html -->
+{% extends "pages/index.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Données de Collecte</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #ffffff;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #d4d4d4;
+            text-align: left;
+        }
+        th {
+            background-color: #ffffff;
+            font-weight: bold;
+        }
+        .pagination {
+            margin-top: 10px;
+        }
+        .pagination a {
+            display: inline-block;
+            padding: 8px 12px;
+            margin-right: 5px;
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            text-decoration: none;
+            color: #333;
+        }
+        .pagination a.active {
+            background-color: #007bff;
+            color: #fff;
+            border-color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Medecins disponibles</h1>
+
+    <table id="data-table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Role</th>
+                <th>Suivis</th>
+                <!-- Ajoutez d'autres colonnes au besoin -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for doc in user %}
+            <tr>
+                <td>{{ doc.nom }}</td>
+                <td>{{ doc.prenom }}</td>
+                <td>{{ doc.role.id }}</td>
+                <td></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+     
+    </table>
+
+    <!-- Pagination -->
+    <!-- Pagination -->
+</body>
+</html>
+{% endblock %}

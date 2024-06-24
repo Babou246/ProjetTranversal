@@ -1,12 +1,15 @@
+import uuid
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from datetime import datetime
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user
+from itsdangerous import Serializer
 from werkzeug.security import generate_password_hash, check_password_hash
 import pandas
 from pymongo import MongoClient
 from datetime import datetime
+
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:passer@localhost/projetransversal'
@@ -37,7 +40,7 @@ class Region(db.Model):
 # Modèle Utilisateur avec référence à Role
 class Utilisateur(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(30), nullable=False)
+    username = db.Column(db.String(200), nullable=False)
     email = db.Column(db.String(60), nullable=False, unique=True)
     password = db.Column(db.String(256), nullable=False) 
     nom = db.Column(db.String(30), nullable=False)
@@ -47,6 +50,9 @@ class Utilisateur(db.Model):
     active = db.Column(db.Boolean, default=True)
     region_id = db.Column(db.Integer, db.ForeignKey('region.id'), nullable=False)
     region = db.relationship('Region', backref=db.backref('utilisateurs', lazy=True))
+    session_token = db.Column(db.String(36), unique=True, nullable=True) 
+    suivi_par = db.Column(db.Integer, db.ForeignKey('utilisateur.id'), nullable=True)
+    check = db.Column(db.Boolean, default=False)
 
 
     def __repr__(self):
@@ -59,6 +65,13 @@ class Utilisateur(db.Model):
         return str(self.id)
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
+
+    def get_session_token(self):
+        return str(uuid.uuid4())
+    
+    @property
+    def can_follow_doctor(self):
+        return self.role_id == 1 
     
     @property
     def is_authenticated(self):
@@ -69,15 +82,23 @@ class Utilisateur(db.Model):
     def is_anonymous(self):
         return False
     
+
 class Patient(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, nullable=False)
     name = db.Column(db.String(100), nullable=False)
     age = db.Column(db.Integer, nullable=False)
-    symptoms = db.Column(db.Text, nullable=False)
-    meat_consumption = db.Column(db.String(10), nullable=False)
+    fever = db.Column(db.String(3), nullable=False)
+    fatigue = db.Column(db.String(3), nullable=False)
+    muscle_aches = db.Column(db.String(3), nullable=False)
+    headache = db.Column(db.String(3), nullable=False)
+    vomiting = db.Column(db.String(3), nullable=False)
+    diarrhea = db.Column(db.String(3), nullable=False)
+    meat_consumption = db.Column(db.String(3), nullable=False)
     animal_type = db.Column(db.String(100), nullable=True)
+    additional_info = db.Column(db.Text, nullable=True)
     timestamp = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
+
 
 class Dataset(db.Model):
     id = db.Column(db.Integer, primary_key=True)

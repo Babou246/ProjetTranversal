@@ -71,7 +71,11 @@
                 <td>{{ doc.matrix }}</td>
                 <td>{{ doc.other_information }}</td>
                 <td>{{ doc.starting_value }}</td>
-                <td><i class="fa fa-eye" style="cursor: pointer;" data-id="" onclick=""></i></td>
+                <td>
+                    <a href="{{ url_for('collect_detail', id=doc._id) }}">
+                        <i class="fa fa-eye" style="cursor: pointer;"></i>
+                    </a>
+                </td>
             </tr>
             {% endfor %}
         </tbody>

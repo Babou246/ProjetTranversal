@@ -65,7 +65,7 @@
             return gridjs.html(`<i class="fa fa-eye" style="cursor: pointer;" data-id="${row.cells[0].data}" onclick="viewUser(${row.cells[0].data})"></i>`);
         };
 
-        new gridjs.Grid({
+        const grid = new gridjs.Grid({
             columns: [
                 { id: 'id', hidden: true },
                 { id: 'username', name: 'Username', attributes: editableCellAttributes },
@@ -102,47 +102,14 @@
                     url: (prev, page, limit) => updateUrl(prev, { start: page * limit, length: limit }),
                 },
             },
-        }).render(tableDiv);
-
-        // Gestion des événements pour l'édition des cellules
-        let savedValue;
-        tableDiv.addEventListener('focusin', ev => {
-            if (ev.target.tagName === 'TD') {
-                savedValue = ev.target.textContent;
-            }
-        });
-        tableDiv.addEventListener('focusout', ev => {
-            if (ev.target.tagName === 'TD') {
-                if (savedValue !== ev.target.textContent) {
-                    fetch('/api/data', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            id: ev.target.dataset.elementId,
-                            [ev.target.dataset.columnId]: ev.target.textContent
-                        }),
-                    });
-                }
-                savedValue = undefined;
-            }
-        });
-        tableDiv.addEventListener('keydown', ev => {
-            if (ev.target.tagName === 'TD') {
-                if (ev.key === 'Escape') {
-                    ev.target.textContent = savedValue;
-                    ev.target.blur();
-                } else if (ev.key === 'Enter') {
-                    ev.preventDefault();
-                    ev.target.blur();
-                }
-            }
         });
 
+        // Fonction pour rediriger vers la page de détail de l'utilisateur
         function viewUser(userId) {
             window.location.href = `/user/${userId}`;
         }
+
+        grid.render(tableDiv);
     </script>
 </body>
 </html>

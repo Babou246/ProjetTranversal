@@ -36,6 +36,18 @@ bcrypt = Bcrypt()
 mail = Mail(app)
 
 
+@app.before_request
+def check_session():
+    if current_user.is_authenticated:
+        # Vérifier si le jeton de session correspond
+        utilisateur = Utilisateur.query.get(current_user.id)
+        if utilisateur.session_token != current_user.session_token:
+            logout_user()
+            flash('Vous avez été déconnecté car une autre session a été ouverte.', 'warning')
+            return redirect(url_for('login'))
+        
+
+
 #------------------------------------
 @login_manager.user_loader
 def load_user(user_id):
@@ -146,7 +158,14 @@ def login():
         utilisateur = Utilisateur.query.filter_by(email=email).first()
 
         if utilisateur and utilisateur.verify_password(password):
+            session_token = utilisateur.get_session_token()
+
+            # Déconnecter les autres sessions actives
+            utilisateur.session_token = session_token
+            db.session.commit()
+
             login_user(utilisateur)
+            current_user.session_token = session_token
             return redirect(url_for('dashboard'))
         else:
             flash('Identifiants incorrects. Veuillez réessayer.', 'danger')
@@ -218,8 +237,8 @@ def inscrire():
             db.session.add(nouvel_utilisateur)
             db.session.commit()
             msg = Message('CREATION COMPTE ALERT VHE', recipients=[nouvel_utilisateur.email])
-            msg.body = f"Bonjour M/Mme {nouvel_utilisateur.nom} \nVotre vient d'être crée avec succés avec comme mot de passe par défaut P@ssera2024\n\nMerci de consulter votre le compte sur le lien http://localhost:4000/prevent/vhe/login" 
-            #mail.send(msg)
+            msg.body = f"Bonjour M/Mme {nouvel_utilisateur.nom} \nVotre Compte vient d'être crée avec succés avec comme mot de passe par défaut P@ssera2024\n\nMerci de consulter votre le compte sur le lien http://localhost:4000/prevent/vhe/login" 
+            mail.send(msg)
         flash('Inscription réussie. Vous pouvez maintenant vous connecter.', 'success')
 
     return render_template('compte/inscription.html',region_senegal=region_senegal)
@@ -230,6 +249,8 @@ def inscrire():
 @app.route('/logout')
 @login_required
 def logout():
+    current_user.session_token = None  # Invalider le jeton de session
+    db.session.commit()
     logout_user()
     return redirect(url_for('login'))
 #####################################################
@@ -239,6 +260,16 @@ def logout():
 @login_required
 def accueil():
     return render_template('pages/table.html')
+
+@app.route('/user/<int:user_id>')
+@login_required
+def user_detail(user_id):
+    utilisateur = Utilisateur.query.get(user_id)
+    print('------------------',utilisateur)
+    if not utilisateur:
+        abort(404)
+    return render_template('pages/table-detail.html', utilisateur=utilisateur)
+
 
 ####################################################### user
 
@@ -282,12 +313,14 @@ def user():
 
 
 
-def send_email(nom,recipient, csv_filename):
-    msg = Message('Données des symptômes du patient', recipients=[recipient])
-    msg.body = f'Bonjour Docteur {nom}, veuillez trouver ci-joint les données des symptômes du patient.'
-    with app.open_resource(csv_filename) as csv_file:
-        msg.attach(csv_filename, 'text/csv', csv_file.read())
-    mail.send(msg)
+def send_email(nom, email, csv_filename):
+    with app.app_context():
+        msg = Message(subject="Données des symptômes du patient",
+                      recipients=[email])
+        msg.body = f"Bonjour Dr. {nom},\n\nVous avez un nouveau patient à suivre.\nVeuillez trouver les détails en pièce jointe."
+        with app.open_resource(csv_filename) as fp:
+            msg.attach(csv_filename, 'text/csv', fp.read())
+        mail.send(msg)
 
 @app.route('/submit-form', methods=['GET', 'POST'])
 def submit_form():
@@ -295,28 +328,38 @@ def submit_form():
         user_id = request.form.get('user_id')
         name = request.form.get('name')
         age = request.form.get('age')
-        symptoms = request.form.get('symptoms')
+        fever = request.form.get('fever')
+        fatigue = request.form.get('fatigue')
+        muscle_aches = request.form.get('muscle_aches')
+        headache = request.form.get('headache')
+        vomiting = request.form.get('vomiting')
+        diarrhea = request.form.get('diarrhea')
         meat_consumption = request.form.get('meatConsumption')
         animal_type = request.form.get('animalType')
+        additional_info = request.form.get('additionalInfo')
         
-
         # Préparer les données pour le fichier CSV
         print(request.form)  # Print all form data for debugging
         csv_data = [
-                ['Nom du Patient', 'Âge', 'Symptômes', 'Consommation de Viande', 'Type d\'Animal'],
-                [name, age, symptoms, meat_consumption, animal_type]
+            ['Nom du Patient', 'Âge', 'Fièvre', 'Fatigue', 'Douleurs Musculaires', 'Maux de Tête', 'Vomissements', 'Diarrhée', 'Consommation de Viande', 'Type d\'Animal', 'Autres Informations'],
+            [name, age, fever, fatigue, muscle_aches, headache, vomiting, diarrhea, meat_consumption, animal_type, additional_info]
         ]
 
-
-        print('########################>>>',csv_data)
+        print('########################>>>', csv_data)
         
         new_patient = Patient(
             user_id=user_id,
             name=name,
             age=age,
-            symptoms=symptoms,
+            fever=fever,
+            fatigue=fatigue,
+            muscle_aches=muscle_aches,
+            headache=headache,
+            vomiting=vomiting,
+            diarrhea=diarrhea,
             meat_consumption=meat_consumption,
             animal_type=animal_type,
+            additional_info=additional_info,
             timestamp=datetime.utcnow()
         )
         db.session.add(new_patient)
@@ -325,14 +368,14 @@ def submit_form():
         with open(csv_filename, 'w', newline='') as csvfile:
             csvwriter = csv.writer(csvfile)
             csvwriter.writerows(csv_data)
-        
-        # Récupérer tous les utilisateurs ayant le rôle de médecin
-        medecins = Utilisateur.query.filter_by(role_id=2).all()
-        
-        # Envoyer un e-mail aux utilisateurs médecins avec le fichier CSV en pièce jointe
-        for medecin in medecins:
-            print('################################>>>>',medecin.email)
-            #send_email(medecin.nom,medecin.email, csv_filename)
+
+        # Récupérer le médecin suivi par l'utilisateur actuel
+        followed_doctor_id = current_user.suivi_par
+        if followed_doctor_id:
+            followed_doctor = Utilisateur.query.get(followed_doctor_id)
+            if followed_doctor:
+                send_email(followed_doctor.nom, followed_doctor.email, csv_filename)
+                print('Email sent to:', followed_doctor.email)
         
         # Supprimer le fichier CSV temporaire après l'envoi des e-mails
         import os
@@ -444,6 +487,20 @@ def data_mongodb():
         'total': total,
     })
 
+
+from bson.objectid import ObjectId
+
+@app.route('/data-hepat/collect/<id>')
+@login_required
+def collect_detail(id):
+    document = collection.find_one({"_id": ObjectId(id)})
+
+    if document is None:
+        return "Document not found", 404
+
+    return render_template('data/detail.html', document=document)
+
+
 @app.route('/data-hepat/collects')
 @login_required
 def data_mongo_db():
@@ -470,6 +527,29 @@ def data_mongo_db():
 def medecin():
     user = Utilisateur.query.filter_by(role_id=2).all()
     return render_template('pages/medecin.html',user=user)
+
+
+@app.route('/follow-doctor/<int:doctor_id>', methods=['POST'])
+@login_required
+def follow_doctor(doctor_id):
+    doctor = Utilisateur.query.get(doctor_id)
+    if doctor is None:
+        return jsonify({'error': 'Doctor not found'}), 404
+
+    if current_user.suivi_par == doctor_id:
+        current_user.suivi_par = None
+        current_user.check = False
+        message = 'Doctor unfollowed successfully'
+    else:
+        current_user.suivi_par = doctor_id
+        current_user.check = True
+        message = 'Doctor followed successfully'
+
+    db.session.commit()
+
+    return jsonify({'success': message, 'following': current_user.check})
+
+
 
 
 ################################################################################################ FN DE CRUD

@@ -1,0 +1,26 @@
+{% extends "pages/index.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails du Document</title>
+</head>
+<body>
+    <h1>Détails du Document</h1>
+    <ul>
+        <li>Temperature: {{ document.temperature }}</li>
+        <li>Time Hours: {{ document.time_hours }}</li>
+        <li>Time Mins: {{ document.time_mins }}</li>
+        <li>Log Reduction: {{ document.log_reduction }}</li>
+        <li>Matrix: {{ document.matrix }}</li>
+        <li>Other Information: {{ document.other_information }}</li>
+        <li>Starting Value: {{ document.starting_value }}</li>
+        <!-- Add other fields as necessary -->
+    </ul>
+    <a href="{{ url_for('data_mongo_db') }}">Retour</a>
+</body>
+</html>
+{% endblock %}

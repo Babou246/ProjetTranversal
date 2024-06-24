@@ -75,49 +75,140 @@
                     </script>
 
 
-                      <div class="modal fade" id="symptomModal" tabindex="-1" aria-labelledby="symptomModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="symptomModalLabel">Formulaire de Symptômes</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                  
+                    <div class="modal fade" id="symptomModal" tabindex="-1" aria-labelledby="symptomModalLabel" aria-hidden="true">
+                      <div class="modal-dialog modal-lg">
+                          <div class="modal-content">
+                              <div class="modal-header">
+                                  <h5 class="modal-title" id="symptomModalLabel">Formulaire de Symptômes</h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                  </button>
+                              </div>
+                              
+                              <div class="modal-body">
                                   <form action="{{ url_for('submit_form') }}" method="post" class="mt-4">
-                                    <input type="hidden" name="user_id" value="{{ current_user.id }}">
-                                    <div class="form-group">
-                                        <label for="name">Nom du Patient</label>
-                                        <input type="text" class="form-control" id="name" name="name" placeholder="Entrez votre nom" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="age">Âge</label>
-                                        <input type="number" class="form-control" id="age" name="age" placeholder="Entrez votre âge" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="symptoms">Symptômes</label>
-                                        <textarea class="form-control" id="symptoms" name="symptoms" rows="3" placeholder="Décrivez vos symptômes" required></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="meatConsumption">Consommez-vous régulièrement de la viande d'animal?</label>
-                                        <select class="form-control" id="meatConsumption" name="meatConsumption" required>
-                                            <option value="">Sélectionnez une option</option>
-                                            <option value="Oui">Oui</option>
-                                            <option value="Non">Non</option>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="animalType">Si oui, quel type d'animal?</label>
-                                        <input type="text" class="form-control" id="animalType" name="animalType" placeholder="Entrez le type d'animal">
-                                    </div>
-                                    <button type="submit" class="btn btn-success mt-3">Soumettre</button>
-                                </form>
-                                
-                                </div>
-                            </div>
-                        </div>
+                                      <input type="hidden" name="user_id" value="{{ current_user.id }}">
+                                      
+                                      <div class="row">
+                                          <div class="col-sm-6">
+                                              <div class="form-group">
+                                                  <label for="name">Nom du Patient</label>
+                                                  <input type="text" class="form-control" id="name" name="name" placeholder="Entrez votre nom" required>
+                                              </div>
+                                          </div>
+                                          
+                                          <div class="col-sm-6">
+                                              <div class="form-group">
+                                                  <label for="age">Âge</label>
+                                                  <input type="number" class="form-control" id="age" name="age" placeholder="Entrez votre âge" required>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      
+                                      <div class="row">
+                                          <div class="col-sm-4">
+                                              <div class="form-group">
+                                                  <label for="fever">Avez-vous de la fièvre ?</label>
+                                                  <select class="form-control" id="fever" name="fever" required>
+                                                      <option value="">Sélectionnez une option</option>
+                                                      <option value="Oui">Oui</option>
+                                                      <option value="Non">Non</option>
+                                                  </select>
+                                              </div>
+                                          </div>
+                                          
+                                          <div class="col-sm-4">
+                                              <div class="form-group">
+                                                  <label for="fatigue">Ressentez-vous de la fatigue ?</label>
+                                                  <select class="form-control" id="fatigue" name="fatigue" required>
+                                                      <option value="">Sélectionnez une option</option>
+                                                      <option value="Oui">Oui</option>
+                                                      <option value="Non">Non</option>
+                                                  </select>
+                                              </div>
+                                          </div>
+
+                                          <div class="col-sm-4">
+                                              <div class="form-group">
+                                                  <label for="muscleAches">Avez-vous des douleurs musculaires ?</label>
+                                                  <select class="form-control" id="muscleAches" name="muscle_aches" required>
+                                                      <option value="">Sélectionnez une option</option>
+                                                      <option value="Oui">Oui</option>
+                                                      <option value="Non">Non</option>
+                                                  </select>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      
+                                      <div class="row">
+                                          <div class="col-sm-4">
+                                              <div class="form-group">
+                                                  <label for="headache">Avez-vous des maux de tête ?</label>
+                                                  <select class="form-control" id="headache" name="headache" required>
+                                                      <option value="">Sélectionnez une option</option>
+                                                      <option value="Oui">Oui</option>
+                                                      <option value="Non">Non</option>
+                                                  </select>
+                                              </div>
+                                          </div>
+                                          
+                                          <div class="col-sm-4">
+                                              <div class="form-group">
+                                                  <label for="vomiting">Avez-vous des vomissements ?</label>
+                                                  <select class="form-control" id="vomiting" name="vomiting" required>
+                                                      <option value="">Sélectionnez une option</option>
+                                                      <option value="Oui">Oui</option>
+                                                      <option value="Non">Non</option>
+                                                  </select>
+                                              </div>
+                                          </div>
+
+                                          <div class="col-sm-4">
+                                              <div class="form-group">
+                                                  <label for="diarrhea">Avez-vous de la diarrhée ?</label>
+                                                  <select class="form-control" id="diarrhea" name="diarrhea" required>
+                                                      <option value="">Sélectionnez une option</option>
+                                                      <option value="Oui">Oui</option>
+                                                      <option value="Non">Non</option>
+                                                  </select>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      
+                                      <div class="row">
+                                          <div class="col-sm-4">
+                                              <div class="form-group">
+                                                  <label for="meatConsumption">Consommez-vous régulièrement de la viande d'animal ?</label>
+                                                  <select class="form-control" id="meatConsumption" name="meatConsumption" required>
+                                                      <option value="">Sélectionnez une option</option>
+                                                      <option value="Oui">Oui</option>
+                                                      <option value="Non">Non</option>
+                                                  </select>
+                                              </div>
+                                          </div>
+                                          
+                                          <div class="col-sm-4">
+                                              <div class="form-group">
+                                                  <label for="animalType">Si oui, quel type d'animal ?</label>
+                                                  <input type="text" class="form-control" id="animalType" name="animalType" placeholder="Entrez le type d'animal">
+                                              </div>
+                                          </div>
+
+                                          <div class="col-sm-4">
+                                              <div class="form-group">
+                                                  <label for="additionalInfo">Autres informations</label>
+                                                  <textarea class="form-control" id="additionalInfo" name="additionalInfo" rows="3" placeholder="Ajoutez d'autres informations si nécessaire"></textarea>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      
+                                      <button type="submit" class="btn btn-success">Soumettre</button>
+                                  </form>
+                              </div>
+                          </div>
                       </div>
+                    </div>
+
                     </div>
                   </div>
                 </div>

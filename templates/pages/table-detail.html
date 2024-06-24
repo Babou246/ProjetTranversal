@@ -1,0 +1,13 @@
+{% extends "pages/index.html" %}
+
+{% block content %}
+    <h1>Détails de l'Utilisateur</h1>
+    <ul>
+        <li><strong>Nom d'utilisateur:</strong> {{ utilisateur.username }}</li>
+        <li><strong>Email:</strong> {{ utilisateur.email }}</li>
+        <li><strong>Nom:</strong> {{ utilisateur.nom }}</li>
+        <li><strong>Prénom:</strong> {{ utilisateur.prenom }}</li>
+    </ul>
+    <a href="{{ url_for('accueil') }}">Retour à la liste des utilisateurs</a>
+
+{% endblock %}

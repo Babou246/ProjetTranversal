@@ -1,26 +1,36 @@
 {% extends "pages/index.html" %}
 
 {% block content %}
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Détails du Document</title>
-</head>
-<body>
-    <h1>Détails du Document</h1>
-    <ul>
-        <li>Temperature: {{ document.temperature }}</li>
-        <li>Time Hours: {{ document.time_hours }}</li>
-        <li>Time Mins: {{ document.time_mins }}</li>
-        <li>Log Reduction: {{ document.log_reduction }}</li>
-        <li>Matrix: {{ document.matrix }}</li>
-        <li>Other Information: {{ document.other_information }}</li>
-        <li>Starting Value: {{ document.starting_value }}</li>
-        <!-- Add other fields as necessary -->
-    </ul>
-    <a href="{{ url_for('data_mongo_db') }}">Retour</a>
-</body>
-</html>
+
+<h1>Détails du Document</h1>
+<button type="button" class="btn btn-success">
+    <a hcref="{{ url_for('data_mongo_db') }}">Retour</a>
+</button>
+
+<div class="card text-center">
+    <div class="row">
+        <div class="col-sm-6">
+
+            <div class="card-header">Temperature: {{ document.temperature }}</div>
+            <div class="card-header">Matrix: {{ document.matrix }}</div>
+            <div class="card-header">Other Information: {{ document.other_information }}</div>
+        </div>
+        <div class="col-sm-6">
+
+            <div class="card-body">
+                <h5 class="card-title">Time Hours: {{ document.time_hours }}</h5>
+                <h5 class="card-text">Time Mins: {{ document.time_mins }}</h5>
+                <h5 class="card-text">Log Reduction: {{ document.log_reduction }}</h5>
+                <h5 class="card-text">Starting Value: {{ document.starting_value }}</h5>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="card-footer text-muted">
+                2 days ago
+            </div>
+        </div>
+
+    </div>
+</div>
+
 {% endblock %}

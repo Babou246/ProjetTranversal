@@ -87,8 +87,35 @@ gname=random.randint(6,66)
 @app.route('/dashboard/prevent-vhe/',methods=['GET'])
 @login_required
 def dashboard():
+    print('ddddddddddddddddddddddddd',current_user.role.id)
     patients = Patient.query.order_by(Patient.timestamp.desc()).all()
-    return render_template('pages/dashboard.html',current_user=current_user,patients=patients)
+    # Liste des mots à rechercher
+    keywords = ["Genotype 1", "Genotype 2"]
+
+    # Construire la requête avec $regex pour matcher les mots
+    regex_query = {"$or": [{"other_information": {"$regex": keyword}} for keyword in keywords]}
+
+    # Exécuter la requête et récupérer les documents
+    documents = collection.find(regex_query).sort("time_hours", pymongo.DESCENDING).limit(6)
+    query = {"other_information": {"$regex": "|".join(keywords)}}
+    
+    count_genotypes = collection.count_documents(query)
+    
+    result = {
+        "count_genotype_1_and_2": count_genotypes
+    }
+    # Afficher les documents trouvés
+    tmes = []
+    geno = []
+    genos = []
+    genotype = []
+    for doc in documents:
+        print( result )       
+        tmes.append(doc.get('temperature'))
+        geno.append(doc.get('time_hours'))
+        genos.append(doc.get('time_hours'))
+        genotype.append(doc.get('other_information'))
+    return render_template('pages/dashboard.html',genotype=genotype,tmes=tmes,genos=genos,geno=geno,current_user=current_user,patients=patients,documents=documents)
 
 #-------------------------------------------------------------------------------------------------------------------
 
@@ -177,7 +204,7 @@ def inscrire():
     regions_senegal = [
     "Dakar", "Diourbel", "Fatick", "Kaffrine", "Kaolack",
     "Kédougou", "Kolda", "Louga", "Matam", "Saint-Louis",
-    "Sédhiou", "Tambacounda", "Thiès", "Ziguinchor"
+                                                                                                                                                                                                                                                                                                                                                                                                   "Sédhiou", "Tambacounda", "Thiès", "Ziguinchor"
     ]
     region_senegal = Region.query.all()
 
@@ -385,6 +412,14 @@ def submit_form():
        
     return redirect(url_for('user'))
 
+@app.route('/test')
+@login_required
+def view_patient():
+    # Récupérer les enregistrements du patient actuellement connecté
+    patient = Patient.query.filter_by(user_id=current_user.id).all()
+    print('rrrrrrrrrrrrrrrrrrrrr', patient)  # Utilisé pour le débogage
+    return render_template('profil/test.html', patient=patient)
+
 #################################################################
 
 from flask import jsonify
@@ -446,6 +481,11 @@ def data():
         'total': total,
     })
 
+@app.route('/api/delete/<int:user_id>', methods=['DELETE'])
+def delete_user(user_id):
+    global data
+    data = [item for item in data if item["id"] != user_id]
+    return '', 204
 ###################################################################################### CRUD MONGODB 
 # Route pour afficher les données
 @app.route('/api/vhe')
@@ -499,6 +539,7 @@ def collect_detail(id):
         return "Document not found", 404
 
     return render_template('data/detail.html', document=document)
+
 
 
 @app.route('/data-hepat/collects')
@@ -566,6 +607,32 @@ def update(id):
                 setattr(user, field, data[field])
         db.session.commit()
         return '', 204
+
+
+@app.route('/admin', methods=['POST', 'GET'])
+def admin_login():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        utilisateur = Utilisateur.query.filter_by(username=username).first()
+        
+        if utilisateur and utilisateur.username == username and utilisateur.password == password:
+            session_token = utilisateur.get_session_token()
+            utilisateur.session_token = session_token
+            db.session.commit()
+
+            login_user(utilisateur)
+            current_user.session_token = session_token
+            return redirect(url_for('dashboard'))
+        else:
+            flash('Identifiants incorrects', 'danger')
+    return render_template('admn/index.html')
+
+
+""" @app.errorhandler(404)
+def not_found_error(error):
+    return render_template('error/404.html'), 404 
+"""
 
 
 if __name__ == '__main__':

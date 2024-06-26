@@ -32,7 +32,7 @@
         <div class="card card-stats">
             <div class="card-header">
                 <div class="icon icon-rose">
-                    <span class="material-icons">shopping_cart</span>
+                    <span class="material-icons">account_circle</span>
 
                 </div>
             </div>
@@ -52,7 +52,7 @@
             <div class="card-header">
                 <div class="icon icon-success">
                     <span class="material-icons">
-                        city
+                        cloud
                     </span>
 
                 </div>
@@ -107,7 +107,7 @@
                 
             </div>
         </div>
-        {% if current_user.role.id ==2 %}
+        {% if current_user.role.id ==2 or current_user.role.id ==3 %}
         <div class="card" style="min-height: 485px">
             <canvas id="barChart"></canvas>
         </div>
@@ -115,7 +115,7 @@
     </div>
 
     <div class="col-lg-5 col-md-12">
-        {% if current_user.role.id ==2 %}
+        {% if current_user.role.id ==2 or current_user.role.id ==3 %}
         <div class="card" style="min-height: 485px">
             <div class="card-header card-header-text">
                 <h4 class="card-title">Les Symptômes les plus fréquents</h4>
@@ -171,7 +171,7 @@
                 <canvas id="doughnutChart" width="100" height="100"></canvas>
             </div>
         </div>
-        {% else %}
+        {% elif current_user.role.id == 1 %}
         <div class="card" style="min-height: 485px"> 
             
             <div class="card-content table-responsive" width="50" height="50">
@@ -184,18 +184,15 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-    const labels = ["Maux de tête", "Toux", "Courbature", "Mauvais alen", "Mauvais degestion", "gonflement", "saigment"];
-    const salaries = [23, 200, 190, 323, 29, 431, 40];
-    
     // Line Chart
     const lineChartCtx = document.getElementById('lineChart').getContext('2d');
     const lineChart = new Chart(lineChartCtx, {
         type: 'line',
         data: {
-            labels: labels,
+            labels: {{ geno | tojson }},
             datasets: [{
-                label: 'Salaries',
-                data: salaries,
+                label: 'Genotype',
+                data: {{ tmes | tojson }},
                 borderColor: 'rgba(75, 192, 192, 1)',
                 borderWidth: 1,
                 fill: false
@@ -209,21 +206,21 @@
             },
             plugins: {
                 legend: {
-                    display: false // Disables the legend
+                    display: false // Désactiver la légende
                 }
-            } 
+            }
         }
     });
-    
+
     // Bar Chart
     const barChartCtx = document.getElementById('barChart').getContext('2d');
     const barChart = new Chart(barChartCtx, {
         type: 'bar',
         data: {
-            labels: labels,
+            labels: {{ genotype | tojson }},
             datasets: [{
-                label: 'Salaries',
-                data: salaries,
+                label: 'Température d\'evolution',
+                data: {{ tmes | tojson }},
                 backgroundColor: 'rgba(75, 192, 192, 0.2)',
                 borderColor: 'rgba(75, 192, 192, 1)',
                 borderWidth: 1
@@ -238,30 +235,27 @@
             },
             plugins: {
                 legend: {
-                    display: false // Disables the legend
+                    display: false // Désactiver la légende
                 }
-            } 
+            }
         }
     });
-
-    const label = ["Bob Williams", "Mike Tyson", "Tim Sebastian", "Philip Morris", "Minerva Hooper", "Hulk Hogan", "Angelina Jolie"];
-    const salarie = [23566, 10200, 32190, 31123];
 
     // Doughnut Chart
     const doughnutChartCtx = document.getElementById('doughnutChart').getContext('2d');
     const doughnutChart = new Chart(doughnutChartCtx, {
         type: 'doughnut',
         data: {
-            labels: label,
+            labels: {{ genos | tojson }},
             datasets: [{
                 label: 'Salarie',
-                data: salarie,
+                data: {{ genotype | tojson }},
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
                     'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    ],
+                    'rgba(75, 192, 192, 0.2)'
+                ],
                 borderWidth: 1
             }]
         },
@@ -269,13 +263,13 @@
             cutout: '40%',
             plugins: {
                 legend: {
-                    display: false
+                    display: false // Désactiver la légende
                 }
-            } // This property makes the chart doughnut shaped (hollow center)
+            }
         }
     });
-    
 </script>
+
 
 {% endblock %}
 

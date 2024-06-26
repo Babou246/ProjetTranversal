@@ -1,13 +1,7 @@
 {% extends "pages/index.html" %}
 
 {% block content %}
-
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Table Editable avec Grid.js</title>
+    <title></title>
     <link href="https://cdn.jsdelivr.net/npm/gridjs/dist/theme/mermaid.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
@@ -23,14 +17,14 @@
         th {
             background-color: #f4f4f4;
         }
-        .detail-cell {
+        .detail-cell, .delete-cell {
             text-align: center;
         }
-        .detail-cell i {
+        .detail-cell i, .delete-cell i {
             cursor: pointer;
             color: #007bff;
         }
-        .detail-cell i:hover {
+        .detail-cell i:hover, .delete-cell i:hover {
             color: #0056b3;
         }
     </style>
@@ -62,7 +56,12 @@
 
         // Fonction de rendu personnalisée pour la colonne "detail"
         const detailCellRenderer = (cell, row) => {
-            return gridjs.html(`<i class="fa fa-eye" style="cursor: pointer;" data-id="${row.cells[0].data}" onclick="viewUser(${row.cells[0].data})"></i>`);
+            return gridjs.html(`<i class="fa fa-eye" data-id="${row.cells[0].data}" onclick="viewUser(${row.cells[0].data})"></i>`);
+        };
+
+        // Fonction de rendu personnalisée pour la colonne "supprimer"
+        const deleteCellRenderer = (cell, row) => {
+            return gridjs.html(`<i class="fa fa-trash" data-id="${row.cells[0].data}" onclick="deleteUser(${row.cells[0].data})"></i>`);
         };
 
         const grid = new gridjs.Grid({
@@ -72,7 +71,8 @@
                 { id: 'email', name: 'Email', sort: false, attributes: editableCellAttributes },
                 { id: 'nom', name: 'Nom', sort: false, attributes: editableCellAttributes },
                 { id: 'prenom', name: 'Prénom', sort: false, attributes: editableCellAttributes },
-                { id: 'detail', name: 'Détail', sort: false, formatter: detailCellRenderer }
+                { id: 'detail', name: 'Détail', sort: false, formatter: detailCellRenderer },
+                { id: 'supprimer', name: 'Supprimer', sort: false, formatter: deleteCellRenderer }
             ],
             server: {
                 url: '/api/data',
@@ -90,7 +90,7 @@
                 multiColumn: true,
                 server: {
                     url: (prev, columns) => {
-                        const columnIds = ['id', 'username', 'email', 'nom', 'prenom', 'detail'];
+                        const columnIds = ['id', 'username', 'email', 'nom', 'prenom', 'detail', 'supprimer'];
                         const sort = columns.map(col => (col.direction === 1 ? '+' : '-') + columnIds[col.index]);
                         return updateUrl(prev, { sort });
                     },
@@ -98,6 +98,7 @@
             },
             pagination: {
                 enabled: true,
+                limit: 10,
                 server: {
                     url: (prev, page, limit) => updateUrl(prev, { start: page * limit, length: limit }),
                 },
@@ -109,9 +110,25 @@
             window.location.href = `/user/${userId}`;
         }
 
+        // Fonction pour supprimer un utilisateur
+        function deleteUser(userId) {
+            if (confirm('Voulez-vous vraiment supprimer cet utilisateur ?')) {
+                fetch(`/api/delete/${userId}`, { method: 'DELETE' })
+                    .then(response => {
+                        if (response.ok) {
+                            alert('Utilisateur supprimé avec succès.');
+                            grid.updateConfig({ server: { url: '/api/data' } }).forceRender();
+                        } else {
+                            alert('Erreur lors de la suppression de l\'utilisateur.');
+                        }
+                    });
+            }
+        }
+
         grid.render(tableDiv);
     </script>
-</body>
-</html>
 
 {% endblock %}
+
+
+

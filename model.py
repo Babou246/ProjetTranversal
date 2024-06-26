@@ -81,7 +81,11 @@ class Utilisateur(db.Model):
     @property
     def is_anonymous(self):
         return False
-    
+
+class Admin(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(80), nullable=False)
+    password = db.Column(db.String(200), nullable=False)
 
 class Patient(db.Model):
     id = db.Column(db.Integer, primary_key=True)

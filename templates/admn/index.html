@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/adm.css') }}">
+</head>
+<body>
+<div id="login-form-wrap">
+  <h2>ADMIN</h2>
+  {% with messages = get_flashed_messages(with_categories=true) %}
+                            {% if messages %}
+                                <div class="alert-container">
+                                    {% for category, message in messages %}
+                                        <div class="alert alert-{{ category }}" role="alert">
+                                            {{ message }}
+                                        </div>
+                                    {% endfor %}
+                                    </div>
+                                {% endif %}
+                            {% endwith %}
+  <form id="login-form" action="{{ url_for('admin_login') }}" method="POST">
+    <p>
+      <input type="text" id="username" name="username" placeholder="Username" value="admin" required><i class="validation"><span></span><span></span></i>
+    </p>
+    <p>
+      <input type="password" id="password" name="password" placeholder="Password" required><i class="validation"><span></span><span></span></i>
+    </p>
+    <p>
+      <input type="submit" id="login" value="Login">
+    </p>
+  </form>
+  <div id="create-account-wrap">
+    <p><a href="#"></a><p>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,227 @@
+{% extends "pages/index.html" %}
+
+{% block content %}
+
+<div class="container">
+    <div class="main-body">
+        <div class="row gutters-sm">
+            <div class="col-md-4 mb-3">
+                <div class="card">
+
+
+                    <style>
+                        .alert-container {
+                            position: fixed;
+                            top: 20px;
+                            right: 20px;
+                            z-index: 1050;
+                        }
+                    </style>
+                    <!-- Structure du modal et script JavaScript -->
+                    <div class="alert-container">
+                        {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                        {% for category, message in messages %}
+                        <div id="alert-modal" class="alert alert-success alert-dismissible fade show" role="alert"
+                            style="display: block;">
+                            {{ message }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        {% endfor %}
+                        {% endif %}
+                        {% endwith %}
+                    </div>
+                    <!-- Script pour fermer automatiquement le modal après 1 seconde -->
+                    <script>
+                        $(document).ready(function () {
+                            // Fermer le modal après 1 seconde
+                            setTimeout(function () {
+                                $('#alert-modal').fadeOut('slow', function () {
+                                    $(this).alert('close');
+                                });
+                            }, 2500);
+
+                            // Fermer le modal en cliquant sur le bouton de fermeture
+                            $('#alert-modal .close').click(function () {
+                                $('#alert-modal').fadeOut('slow', function () {
+                                    $(this).alert('close');
+                                });
+                            });
+
+                            // Fermer le modal en cliquant à l'extérieur du modal
+                            $(document).on('click', function (e) {
+                                if ($(e.target).closest('#alert-modal').length === 0) {
+                                    $('#alert-modal').fadeOut('slow', function () {
+                                        $(this).alert('close');
+                                    });
+                                }
+                            });
+                        });
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-12">
+    <div class="card mb-3">
+        <div class="card-body">
+            {% if patient %}
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Âge</th>
+                        <th scope="col">Fièvre</th>
+                        <th scope="col">Fatigue</th>
+                        <th scope="col">Douleurs musculaires</th>
+                        <th scope="col">Maux de tête</th>
+                        <th scope="col">Vomissements</th>
+                        <th scope="col">Diarrhée</th>
+                        <th scope="col">Consommation de viande</th>
+                        <th scope="col">Type d'animal</th>
+                        <th scope="col">Infos supplémentaires</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Vue</th>
+                        <th scope="col">Resultat</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for patient in patient %}
+                    <tr>
+                        <td>{{ patient.age }}</td>
+                        <td>{{ patient.fever }}</td>
+                        <td>{{ patient.fatigue }}</td>
+                        <td>{{ patient.muscle_aches }}</td>
+                        <td>{{ patient.headache }}</td>
+                        <td>{{ patient.vomiting }}</td>
+                        <td>{{ patient.diarrhea }}</td>
+                        <td>{{ patient.meat_consumption }}</td>
+                        <td>{{ patient.animal_type }}</td>
+                        <td>{{ patient.additional_info }}</td>
+                        <td>{{ patient.timestamp }}</td>
+                        <td>NON</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <p>Aucun enregistrement trouvé.</p>
+            {% endif %}
+
+            <!-- edit_profile.html -->
+            <!-- <form action="{{ url_for('view_patient', user_id=patient.id) }}" method="POST" enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Nom</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input type="text" id="nom" name="nom" value="{{ patient.name }}" class="form-control">
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Âge</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input type="number" id="age" name="age" value="{{ patient.age }}" class="form-control">
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Fièvre</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input type="text" id="fever" name="fever" value="{{ patient.fever }}" class="form-control">
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Fatigue</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input type="text" id="fatigue" name="fatigue" value="{{ patient.fatigue }}" class="form-control">
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Douleurs musculaires</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input type="text" id="muscle_aches" name="muscle_aches" value="{{ patient.muscle_aches }}" class="form-control">
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Mal de tête</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input type="text" id="headache" name="headache" value="{{ patient.headache }}" class="form-control">
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Vomissements</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input type="text" id="vomiting" name="vomiting" value="{{ patient.vomiting }}" class="form-control">
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Diarrhée</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input type="text" id="diarrhea" name="diarrhea" value="{{ patient.diarrhea }}" class="form-control">
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Consommation de viande</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input type="text" id="meat_consumption" name="meat_consumption" value="{{ patient.meat_consumption }}" class="form-control">
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Type d'animal</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <input type="text" id="animal_type" name="animal_type" value="{{ patient.animal_type }}" class="form-control">
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Informations supplémentaires</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <textarea id="additional_info" name="additional_info" class="form-control">{{ patient.additional_info }}</textarea>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <button type="submit" class="btn btn-success">Éditer</button>
+                                </div>
+                            </div>
+                        </form> -->
+        </div>
+    </div>
+
+</div>
+</div>
+</div>
+</div>
+{% endblock %}

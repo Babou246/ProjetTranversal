@@ -207,6 +207,7 @@ def inscrire():
                                                                                                                                                                                                                                                                                                                                                                                                    "Sédhiou", "Tambacounda", "Thiès", "Ziguinchor"
     ]
     region_senegal = Region.query.all()
+    role = Role.query.all()
 
     # Insérez chaque région dans la table Region
     for region_name in regions_senegal:
@@ -222,6 +223,7 @@ def inscrire():
         email = request.form.get('email')
         password = request.form.get('password')
         confirm_password = request.form.get('confirm_password')
+        tel = request.form.get('tel')
         if password == '' and confirm_password == '':
             password = 'P@ssera2024'
             confirm_password='P@ssera2024'
@@ -236,7 +238,7 @@ def inscrire():
         # Vérifier si l'utilisateur existe déjà par email
         utilisateur_existe = Utilisateur.query.filter_by(email=email).first()
         if utilisateur_existe:
-            flash('Cet email est déjà utilisé. Veuillez choisir un autre email.', 'error')
+            flash('Cet email est déjà utilisé. Veuillez choisir un autre email.', 'danger')
             return redirect(url_for('inscrire'))
 
         # Vérifier si les mots de passe correspondent
@@ -258,7 +260,8 @@ def inscrire():
             nom=nom,
             prenom=prenom,
             role_id=role.id,
-            region_id=region_id
+            region_id=region_id,
+            numero_telephone=tel
         )
         if nouvel_utilisateur :
             db.session.add(nouvel_utilisateur)
@@ -268,7 +271,7 @@ def inscrire():
             mail.send(msg)
         flash('Inscription réussie. Vous pouvez maintenant vous connecter.', 'success')
 
-    return render_template('compte/inscription.html',region_senegal=region_senegal)
+    return render_template('compte/inscription.html',role=role,region_senegal=region_senegal)
 
 
 
@@ -481,11 +484,21 @@ def data():
         'total': total,
     })
 
-@app.route('/api/delete/<int:user_id>', methods=['DELETE'])
-def delete_user(user_id):
-    global data
-    data = [item for item in data if item["id"] != user_id]
-    return '', 204
+
+@app.route('/utilisateur/supprimer/<int:user_id>', methods=['DELETE'])
+def supprimer_utilisateur(user_id):
+    try:
+        utilisateur = Utilisateur.query.get(user_id)
+        if utilisateur:
+            db.session.delete(utilisateur)
+            db.session.commit()
+            return jsonify({'message': 'Utilisateur supprimé avec succès'}), 200
+        else:
+            return jsonify({'message': 'Utilisateur non trouvé'}), 404
+    except Exception as e:
+        return jsonify({'message': str(e)}), 500
+
+
 ###################################################################################### CRUD MONGODB 
 # Route pour afficher les données
 @app.route('/api/vhe')
@@ -627,6 +640,11 @@ def admin_login():
         else:
             flash('Identifiants incorrects', 'danger')
     return render_template('admn/index.html')
+
+@app.route('/admin-vue', methods=['POST', 'GET'])
+def index():
+    region_senegal = Region.query.all()
+    render_template('pages/index.html',region_senegal=region_senegal)
 
 
 """ @app.errorhandler(404)

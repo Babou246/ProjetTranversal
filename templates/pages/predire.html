@@ -1,0 +1,119 @@
+{% extends "pages/index.html" %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="container">
+        <div class="col-xl-10 col-lg-11 mx-auto login-container">
+            <div class="row">
+               
+                <div class="col-lg-5 col-md-6 no-padding">
+                    <div class="login-box">
+                        <h5>Authentifiez-vous !</h5>
+                        {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                            <div class="alert-container">
+                                {% for category, message in messages %}
+                                    <div class="alert alert-{{ category }}" role="alert">
+                                        {{ message }}
+                                    </div>
+                                {% endfor %}
+                                </div>
+                            {% endif %}
+                        {% endwith %}
+                        <form action="{{ url_for('predire') }}" method="POST" class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="prenom">exclude_data</label>
+                                    <input type="text" id="prenom" name="exclude_data" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="nom">run_number</label>
+                                    <input type="text" id="nom" name="run_number" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="experiment_dataset">experiment_dataset</label>
+                                    <input type="text" id="experiment_dataset" name="experiment_dataset" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="new_datal">new_datal</label>
+                                    <input type="text" id="new_datal" name="new_datal" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="source">source</label>
+                                    <input type="text" id="source" name="source" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="confirm_password">starting_value</label>
+                                    <input type="text" id="starting_value" name="starting_value" class="form-control">
+                                </div>
+                            </div>
+                            
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="other_information">other_information</label>
+                                    <input type="text" id="other_information" name="other_information" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="matrix">matrix</label>
+                                    <input type="text" id="matrix" name="matrix" class="form-control">
+                                </div>
+                            </div>
+                            
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="log_reduction">log_reduction</label>
+                                    <input type="text" id="log_reduction" name="log_reduction" class="form-control">
+                                </div>
+                            </div>
+                            
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="time_mins">time_mins</label>
+                                    <input type="text" id="time_mins" name="time_mins" class="form-control">
+                                </div>
+                            </div>
+
+                            
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="time_hours">time_hours</label>
+                                    <input type="text" id="time_hours" name="time_hours" class="form-control">
+                                </div>
+                            </div>
+                            
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="temperature">temperature</label>
+                                    <input type="text" id="temperature" name="temperature" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <button type="submit" class="btn btn-success">Predire</button>
+                            </div>
+                        </form>
+                        
+
+                    </div>
+                </div>
+                
+                 <div class="col-lg-7 col-md-6 img-box">
+                    <img src="{{ url_for('static',filename='connex/assets/images/sideimg.png') }}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

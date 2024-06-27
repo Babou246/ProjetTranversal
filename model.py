@@ -53,7 +53,8 @@ class Utilisateur(db.Model):
     session_token = db.Column(db.String(36), unique=True, nullable=True) 
     suivi_par = db.Column(db.Integer, db.ForeignKey('utilisateur.id'), nullable=True)
     check = db.Column(db.Boolean, default=False)
-
+    numero_telephone = db.Column(db.String(20), nullable=True)
+    date_creation_compte = db.Column(db.DateTime, default=datetime.utcnow)
 
     def __repr__(self):
         return f'<Utilisateur {self.username}>'

@@ -19,8 +19,9 @@
 
                         <p style="font-size: large;" class="text-muted font-size-sm">{{ current_user.region.nom }}</p><br>
                       </strong>
+                      {% if current_user.role.id ==1 %}
                       <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#symptomModal">Faire un test</button>
-                      
+                      {% endif %}
                     <style>
                         .alert-container {
                             position: fixed;

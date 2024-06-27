@@ -7,26 +7,37 @@
 
 <div class="card text-center">
     <div class="row">
-        <div class="col-sm-6">
-
+        <div class="col-sm-4">
             <div class="card-header">
                 {{ utilisateur.username }}
             </div>
         </div>
-        <div class="col-sm-6">
-
+        <div class="col-sm-4">
             <div class="card-body">
-                <h5 class="card-title">{{ utilisateur.prenom }}</h5>
-                <p class="card-text">{{ utilisateur.email }} - {{ utilisateur.nom }}</p>
+                <h5 class="card-title">{{ utilisateur.prenom }} {{ utilisateur.nom }}</h5>
+                <p class="card-text">{{ utilisateur.email }}</p>
+                <p class="card-text">{{ utilisateur.numero_telephone }}</p>
+                <p class="card-text">{{ utilisateur.role.name }}</p>
+                <p class="card-text">{{ utilisateur.region.name }}</p>
+            <div>
+
+        <div class="col-sm-4">   
+            <div class="card-body">
+                    <p class="card-text">{{ utilisateur.active }}</p>
+                    <p class="card-text">{{ utilisateur.session_token }}</p>
+                    <p class="card-text">{{ utilisateur.suivi_par }}</p>
+                    <p class="card-text">{{ utilisateur.check }}</p>
+                </div>
             </div>
         </div>
-        <div class="col-sm-12">
+        <div class="col-sm-12 center">
             <div class="card-footer text-muted">
                 2 days ago
             </div>
         </div>
-
     </div>
 </div>
+
+
 
 {% endblock %}

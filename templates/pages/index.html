@@ -33,7 +33,8 @@
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3><img src="{{ url_for('static',filename='img/l.jpeg') }}" class="img-fluid" /><span>PREVENT/VHE({{ current_user.role.nom }})</span></h3>
+                <h3><img src="{{ url_for('static',filename='img/LOGO.ico') }}" width="100%" height="200^x" class="img-fluid" />
+                    <span>PREVENT/VHE({{ current_user.role.nom }})</span></h3>
             </div>
             <ul class="list-unstyled components">
                 <li class="active">
@@ -99,19 +100,19 @@
 
                 <li class="dropdown">
                     <a href="#">
-                        <i class="material-icons">grid_on</i><span>tables</span></a>
+                        <i class="material-icons">grid_on</i><span>Predire</span></a>
                     
                 </li>
-
+                {% if current_user.role.id ==1 %}
                 <li class="dropdown">
                     <a href="{{ url_for('view_patient') }}">
                         <i class="material-icons">content_copy</i><span>Consulter le test</span>
                     </a>
                 </li>
-
-                <li class="">
+                {% endif %}
+                <!-- <li class="">
                     <a href="#"><i class="material-icons">date_range</i><span>copy</span></a>
-                </li>
+                </li> -->
 
                 <li class="">
                     <a href="{{ url_for('logout') }}"><i class="material-icons">power_settings_new</i><span>Logout</span></a>
@@ -170,6 +171,16 @@
                                     </a>
                                 </li> -->
                                 {% if current_user.role.id ==2 or current_user.role.id ==3 %}
+                                    {% if current_user.role.id ==3 %}
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#"  data-toggle="modal" data-target="#addUserModal">
+                                        <span class="material-icons" title="Ajouter un user">add</span>
+                                        </a>
+                                        
+                                    </li>
+                                    
+                                    {% endif %}
+                                
                                 <li class="nav-item">
                                     <a class="nav-link" href="#" data-toggle="modal" data-target="#uploadDataModal">
                                       <span class="material-icons" title="Charger les données">upload</span>
@@ -188,6 +199,107 @@
                         </div>
                     </div>
                 </nav>
+            </div>
+            <!-- Modal pour ajouter les user -->
+            <div class="modal fade" id="addUserModal" tabindex="-1" role="dialog" aria-labelledby="addUserModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="addUserModalLabel">Ajouter un utilisateur</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            {% with messages = get_flashed_messages(with_categories=true) %}
+                            {% if messages %}
+                                <div class="alert-container">
+                                    {% for category, message in messages %}
+                                        <div class="alert alert-{{ category }}" role="alert">
+                                            {{ message }}
+                                        </div>
+                                    {% endfor %}
+                                    </div>
+                                {% endif %}
+                            {% endwith %}
+                            <form action="{{ url_for('inscrire') }}" method="POST" class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="prenom">Prénom</label>
+                                        <input type="text" id="prenom" name="prenom" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="nom">Nom</label>
+                                        <input type="text" id="nom" name="nom" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="email">Email</label>
+                                        <input type="email" id="email" name="email" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="tel">N° Tel</label>
+                                        <input type="tel" id="tel" name="tel" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="password">Mot de passe</label>
+                                        <input type="password" id="password" name="password" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="confirm_password">Confirmer MDP</label>
+                                        <input type="password" id="confirm_password" name="confirm_password" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="role">Rôle</label>
+                                        <select id="role" name="role" class="form-control" required>
+                                            <option value="user">Patient</option>
+                                            <option value="medecin">Médecin</option>
+                                            <option value="chercheur">Chercheur</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="region">Région</label>
+                                        <select id="region" name="region" class="form-control" required>
+                                            <option value="1">Dakar</option>
+                                            <option value="2">Diourbel</option>
+                                            <option value="3">Fatick</option>
+                                            <option value="4">Kaffrine</option>
+                                            <option value="5">Kaolack</option>
+                                            <option value="6">Kédougou</option>
+                                            <option value="7">Kolda</option>
+                                            <option value="8">Louga</option>
+                                            <option value="9">Matam</option>
+                                            <option value="10">Saint-Louis</option>
+                                            <option value="11">Sédhiou</option>
+                                            <option value="12">Tambacounda</option>
+                                            <option value="13">Thiès</option>
+                                            <option value="14">Ziguinchor</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <button type="submit" class="btn btn-success">Ajouter un utilisateur</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!-- Modal pour charger les données -->
             <div class="modal fade" id="uploadDataModal" tabindex="-1" aria-labelledby="uploadDataModalLabel" aria-hidden="true">
